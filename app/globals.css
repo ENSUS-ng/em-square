@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #110c1f;
+  --foreground: #f4f4f5;
+  --brand-purple: #7c0fffff;
+  --brand-gold: #ffa80fff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-gold: var(--brand-gold);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #110c1f;
+    --foreground: #f4f4f5;
+     --color-brand-purple: var(--brand-purple);
+  --color-brand-gold: var(--brand-gold);
   }
 }
 
 body {
+  min-height: 100vh;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.btn-gradient {
+  background-image: linear-gradient(90deg, var(--brand-purple), #a23cff, var(--brand-gold));
+}
+
+.btn-gold-gradient {
+  background-image: linear-gradient(90deg, #ffa80f, #ffd66f);
+}
+
+.text-brand-purple {
+  color: var(--brand-purple);
+}
+
+.text-brand-gold {
+  color: var(--brand-gold);
+}
+
+.bg-brand-gold {
+  background-color: #ffa80f;
+}
+
+.bg-brand-purple_15 {
+  background-color: rgba(124, 15, 255, 0.15);
+}
+
+.bg-brand-gold_15 {
+  background-color: rgba(255, 168, 15, 0.15);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
 }
