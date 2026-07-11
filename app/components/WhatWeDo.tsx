@@ -11,17 +11,17 @@ export function WhatWeDo() {
     <section
       id="what-we-do"
       ref={ref as React.LegacyRef<HTMLElement>}
-      className={`mx-auto mt-24 max-w-310 px-6 transition-all duration-700 ${
+      className={`mx-auto mt-24 max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
         revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       <div className="space-y-14">
-        <div className="max-w-2xl space-y-4 lg:max-w-xl">
+        <div className="mx-auto max-w-2xl space-y-4 text-center lg:max-w-xl lg:text-left">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">What we do</p>
           <h2 className="text-4xl font-semibold text-white md:text-5xl">
             We move culture forward through media and marketing.
           </h2>
-          <p className="max-w-xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto max-w-xl text-lg leading-8 text-slate-300 lg:mx-0">
             Two connected practices, one modern motion: Ensus Media designs the narrative and Ensus
             Marketing turns it into growth.
           </p>

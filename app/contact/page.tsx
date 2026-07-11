@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(124,15,255,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_28%),#0e0b1d] text-white">
-      <main className="mx-auto flex min-h-screen max-w-270 flex-col justify-center px-6 py-12 sm:px-8">
+      <main className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-12 sm:px-8">
         <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-[0_50px_120px_-100px_rgba(0,0,0,0.4)]">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Contact</p>
           <h1 className="mt-4 text-5xl font-semibold text-white sm:text-6xl">
@@ -29,7 +29,10 @@ export default function ContactPage() {
           <div className="mt-10 grid gap-8">
             <div>
               <ContactForm />
-              <p className="mt-4 text-sm text-slate-400 self-center text-center">  Fill The form above and we'll get back to you</p>
+              <p className="mt-4 text-sm text-slate-400 self-center text-center">
+                {" "}
+                Fill The form above and we'll get back to you
+              </p>
             </div>
 
             <div className="relative my-3 flex items-center">
