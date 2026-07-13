@@ -7,7 +7,6 @@ import { createLaunchRequest } from "@/app/utils/createContent"
 export function LaunchRequestForm() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [subject, setSubject] = useState("")
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(null)
@@ -16,7 +15,7 @@ export function LaunchRequestForm() {
     event.preventDefault()
     setStatus(null)
 
-    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
+    if (!name.trim() || !email.trim() || !message.trim()) {
       setStatus({ ok: false, message: "Please fill in all launch request details." })
       return
     }
@@ -28,11 +27,10 @@ export function LaunchRequestForm() {
 
     setLoading(true)
     try {
-      await createLaunchRequest({ name, email, subject, message })
+      await createLaunchRequest({ name, email, message })
       setStatus({ ok: true, message: "Launch request recorded successfully." })
       setName("")
       setEmail("")
-      setSubject("")
       setMessage("")
     } catch (error) {
       setStatus({
@@ -69,16 +67,6 @@ export function LaunchRequestForm() {
           />
         </label>
       </div>
-
-      <label className="flex flex-col">
-        <span className="mb-1 text-sm text-slate-300">Subject</span>
-        <input
-          value={subject}
-          onChange={(event) => setSubject(event.target.value)}
-          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
-          placeholder="Project subject"
-        />
-      </label>
 
       <label className="flex flex-col">
         <span className="mb-1 text-sm text-slate-300">Message</span>

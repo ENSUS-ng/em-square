@@ -32,14 +32,14 @@ export function WhatWeDo() {
           <div className="rounded-4xl border border-brand-purple/30 bg-white/5 p-6">
             <div className="flex items-center gap-3">
               <div className="flex items-center justify-center h-11 w-11 rounded-full bg-brand-purple_15">
-                <Image 
-                src="/favicon.png"
-                alt="icon"
-                width={1080}
-                height={720}
-                className='w-[80%] h-[80%]'
+                <Image
+                  src="/favicon.png"
+                  alt="icon"
+                  width={1080}
+                  height={720}
+                  className="w-[90%] h-[90%]"
                 />
-                </div>
+              </div>
 
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Ensus Media</p>
@@ -60,7 +60,15 @@ export function WhatWeDo() {
 
           <div className="rounded-4xl border border-brand-gold/30 bg-white/5 p-6">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-brand-gold_15" />
+              <div className="flex items-center justify-center h-11 w-11 rounded-2xl bg-brand-gold_15">
+                <Image
+                  src="/favicon.png"
+                  alt="icon"
+                  width={1080}
+                  height={720}
+                  className="w-[90%] h-[90%]"
+                />
+              </div>
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-brand-gold">
                   Ensus Marketing
