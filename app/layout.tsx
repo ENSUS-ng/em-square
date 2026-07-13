@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { Suspense } from "react"
 import "./globals.css"
 
 import { AdminProvider } from "./hooks/AdminContext"
@@ -35,7 +36,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0e0b1d] text-slate-100">
-        <AdminProvider>{children}</AdminProvider>
+        <AdminProvider>
+          <Suspense>
+         {children}   
+          </Suspense>
+          
+          </AdminProvider>
       </body>
     </html>
   )
