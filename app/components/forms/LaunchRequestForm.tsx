@@ -33,6 +33,9 @@ export function LaunchRequestForm() {
       setEmail("")
       setMessage("")
     } catch (error) {
+        setName("")
+      setEmail("")
+      setMessage("")
       setStatus({
         ok: false,
         message: error instanceof Error ? error.message : "Could not create launch request.",

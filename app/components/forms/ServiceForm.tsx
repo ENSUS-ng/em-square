@@ -30,6 +30,10 @@ export function ServiceForm() {
       setType("media")
       setContent("")
     } catch (error) {
+      setHeading("")
+      setAbout("")
+      setType("media")
+      setContent("")
       setStatus({
         ok: false,
         message: error instanceof Error ? error.message : "Could not create service.",

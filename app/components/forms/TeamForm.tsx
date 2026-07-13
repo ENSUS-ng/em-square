@@ -29,6 +29,9 @@ export function TeamForm() {
       setName("")
       setRole("")
     } catch (error) {
+         setPicture("")
+      setName("")
+      setRole("")
       setStatus({
         ok: false,
         message: error instanceof Error ? error.message : "Could not create team member.",

@@ -1,10 +1,20 @@
 "use client"
 
+import axios from "axios"
+
+export type ServiceType = "media" | "marketing"
+
+export type ApiResponse<T> = {
+  success: boolean
+  data: T
+  error?: string
+}
+
 export type ServiceItem = {
   _id: string
   heading: string
   about: string
-  type: "media" | "marketing"
+  type: ServiceType
   content: string
   createdAt?: string
 }
@@ -33,38 +43,38 @@ export type LaunchRequestItem = {
   createdAt?: string
 }
 
-export async function fetchServices() {
-  const response = await fetch("/api/services", { cache: "no-store" })
-  const payload = await response.json()
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.error || "Failed to fetch services")
+async function get<T>(url: string, params?: Record<string, unknown>) {
+  try {
+    const { data: payload } = await axios.get<ApiResponse<T>>(url, {
+      params,
+    })
+
+    if (!payload.success) {
+      throw new Error(payload.error || "Request failed")
+    }
+
+    return payload.data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data?.error || error.message || "Something went wrong")
+    }
+
+    throw error
   }
-  return payload.data as ServiceItem[]
 }
 
-export async function fetchBrands() {
-  const response = await fetch("/api/brands", { cache: "no-store" })
-  const payload = await response.json()
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.error || "Failed to fetch brands")
-  }
-  return payload.data as BrandItem[]
+export function fetchServices(type: ServiceType) {
+  return get<ServiceItem[]>("/api/services", { type })
 }
 
-export async function fetchTeam() {
-  const response = await fetch("/api/team", { cache: "no-store" })
-  const payload = await response.json()
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.error || "Failed to fetch team")
-  }
-  return payload.data as TeamItem[]
+export function fetchBrands() {
+  return get<BrandItem[]>("/api/brands")
 }
 
-export async function fetchLaunchRequests() {
-  const response = await fetch("/api/launch-requests", { cache: "no-store" })
-  const payload = await response.json()
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.error || "Failed to fetch launch requests")
-  }
-  return payload.data as LaunchRequestItem[]
+export function fetchTeam() {
+  return get<TeamItem[]>("/api/team")
+}
+
+export function fetchLaunchRequests() {
+  return get<LaunchRequestItem[]>("/api/launch-requests")
 }

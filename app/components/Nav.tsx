@@ -4,15 +4,22 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAdmin } from "@/app/hooks/AdminContext"
 import Image from "next/image"
+import { LayoutDashboard, Plus } from "lucide-react"
 
 const sections = [
   { id: "what-we-do", label: "What we do" },
-  { id: "partners-team", label: "Partners/Team" },
+  { id: "brands-team", label: "Brands/Team" },
 ]
 
 export function Nav() {
   const [active, setActive] = useState("what-we-do")
   const { isAuthenticated } = useAdmin()
+const [mounted, setMounted] = useState(false)
+
+useEffect(() => {
+  setMounted(true)
+}, [])
+
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -43,17 +50,17 @@ export function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-2 py-4 text-sm text-slate-200">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 pl-0 pr-2 py-4 text-sm text-slate-200">
         <Link
           href="/"
-          className="font-semibold text-white "
+          className="font-semibold text-white w-40 h-12"
         >
          <Image 
           src="/em-logo.png"
           alt='logo'
           width={1080}
           height={720}
-          className='w-40 h-10'
+          className='w-full h-full border-2'
          />
         </Link>
 
@@ -74,19 +81,19 @@ export function Nav() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="text-sm rounded-2xl btn-gradient px-5 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
+            className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
           >
-            Launch a project
+         <Plus size={24} className="text-white stroke-2" />
           </Link>
 
-          {isAuthenticated && (
+          {mounted && isAuthenticated ? (
             <Link
               href="/admin"
-              className="text-sm rounded-2xl btn-gradient-left px-5 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
+              className="text-sm rounded-2xl btn-gradient-left px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
             >
-              Admin
+          <LayoutDashboard size={24} className="text-white" />
             </Link>
-          )}
+          ): ''}
         </div>
       </nav>
     </header>

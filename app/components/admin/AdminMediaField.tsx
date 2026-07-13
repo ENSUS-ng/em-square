@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useRef } from "react"
+import { useRef,useEffect } from "react"
 
 import { useMediaUploader } from "@/app/hooks/useMediaUploader"
 
@@ -36,6 +36,13 @@ export function AdminMediaField({
       console.error(error)
     }
   }
+//   if value change make file to have chosen nothing
+useEffect(() => {
+  if (value !==previewUrl && inputRef.current) {
+    inputRef.current.value = ""
+    setPreviewUrl('')
+  }
+}, [value])
 
   return (
     <div className="space-y-3">

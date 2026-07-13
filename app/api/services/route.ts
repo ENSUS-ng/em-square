@@ -4,10 +4,11 @@ import Service from "@/app/models/service"
 import { connectToDB } from "@/app/utils/database"
 import { createService } from "@/app/utils/createContent"
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const typeOfService = req.nextUrl.searchParams.get("type") || ""
   try {
     await connectToDB()
-    const services = await Service.find({}).sort({ createdAt: -1 }).lean()
+    const services = await Service.find({ type: typeOfService }).sort({ createdAt: -1 }).lean()
 
     return NextResponse.json({ success: true, data: services })
   } catch (error) {

@@ -41,25 +41,33 @@ export async function createService(input: CreateServiceInput) {
     throw new Error("Type must be media or marketing")
   }
 
-  return Service.create({
+  await Service.create({
     heading: input.heading,
     about: input.about,
     type: input.type,
     content: input.content,
   })
+  return {
+  ok: true,
+  message: "Service created successfully",
+}
 }
 
-export async function createBrand(input: CreateBrandInput) {
+export async function createBrand(input: CreateBrandInput) {  
   await connectToDB()
 
   if (!input.logo || !input.brandName) {
     throw new Error("Missing required fields")
   }
 
-  return Brand.create({
+  await Brand.create({
     logo: input.logo,
     brandName: input.brandName,
   })
+  return {
+  ok: true,
+  message: "Brand created successfully",
+}
 }
 
 export async function createTeamMember(input: CreateTeamInput) {
@@ -69,11 +77,15 @@ export async function createTeamMember(input: CreateTeamInput) {
     throw new Error("Missing required fields")
   }
 
-  return Team.create({
+  await Team.create({
     picture: input.picture,
     name: input.name,
     role: input.role,
   })
+  return {
+  ok: true,
+  message: "Team member created successfully",
+}
 }
 
 export async function createLaunchRequest(input: CreateLaunchRequestInput) {

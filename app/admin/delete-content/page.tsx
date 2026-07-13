@@ -28,7 +28,7 @@ export default function DeleteContentPage() {
   const [launchRequests, setLaunchRequests] = useState<SectionState>(initialSectionState)
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [activeKind, setActiveKind] = useState<ContentKind>("service")
- const {isAuthenticated} = useAdmin()
+  const { isAuthenticated } = useAdmin()
 
   useEffect(() => {
     void loadAll()
@@ -101,8 +101,8 @@ export default function DeleteContentPage() {
         : activeKind === "team"
           ? team
           : launchRequests
- if(!isAuthenticated) return null
- 
+  if (!isAuthenticated) return null
+
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.24),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] px-4 py-16 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
@@ -111,7 +111,7 @@ export default function DeleteContentPage() {
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Delete content</p>
               <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">Remove stored content</h1>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
                 Review the items below and delete anything you no longer want published.
               </p>
             </div>

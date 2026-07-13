@@ -10,7 +10,7 @@ export default function ContactPage() {
           <h1 className="mt-4 text-5xl font-semibold text-white sm:text-6xl">
             Let&apos;s launch your next project.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 px-3">
+          <p className="mt-6 max-w-5xl text-lg leading-8 text-slate-300 px-3">
             Share your goals and we&apos;ll help build the strategy, creative and channels to make
             your brand feel fresher, louder and more connected.
           </p>

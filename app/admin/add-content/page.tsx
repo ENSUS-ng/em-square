@@ -47,7 +47,7 @@ export default function AddContentPage() {
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Add content</p>
               <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">Choose what to create</h1>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
                 Pick a content type below to open its create form. Launch requests are handled
                 separately by your client flow.
               </p>

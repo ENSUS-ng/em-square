@@ -17,31 +17,31 @@ const dashboardCards = [
     href: "/admin/delete-content",
     accent: "from-slate-700 via-slate-600 to-slate-500",
   },
-    {
+  {
     title: "Launch requests",
     description: "View/delete all launch requests received from clients.",
-     href:"/admin/launch-requests",
-     accent: "from-brand-gold via-amber-500 to-brand-purple"
+    href: "/admin/launch-requests",
+    accent: "from-brand-gold via-amber-500 to-brand-purple",
   },
 ]
 
 export default function AdminDashboardPage() {
   const [passkey, setPasskey] = useState("")
   const [error, setError] = useState("")
-const { isAuthenticated, login } = useAdmin()
- 
- const handleUnlock = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault()
+  const { isAuthenticated, login } = useAdmin()
 
-  const success = login(passkey)
+  const handleUnlock = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-  if (success) {
-    setError("")
-    return
+    const success = login(passkey)
+
+    if (success) {
+      setError("")
+      return
+    }
+
+    setError("Incorrect passkey. Please try again.")
   }
-
-  setError("Incorrect passkey. Please try again.")
-}
   if (!isAuthenticated) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.26),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.18),transparent_24%),#0e0b1d] px-4 py-10 text-white">
@@ -94,7 +94,7 @@ const { isAuthenticated, login } = useAdmin()
               <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
                 Manage your digital presence
               </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
                 Use the tools below to create and update the content that powers the site.
               </p>
             </div>

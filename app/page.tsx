@@ -2,7 +2,9 @@ import { Nav } from "@/app/components/Nav"
 import { PartnersTeam } from "@/app/components/PartnersTeam"
 import { WhatWeDo } from "@/app/components/WhatWeDo"
 import { aboutText } from "@/app/data/demoArrays"
+import { Plus } from "lucide-react"
 import Link from "next/link"
+
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
       className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(124,15,255,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] text-white"
     >
       <Nav />
-      <main className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <main className="mt-3 mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="w-full rounded-[3rem] border border-white/10 bg-white/5 px-6 py-10 shadow-[0_40px_120px_-90px_rgba(0,0,0,0.55)] sm:px-10 sm:py-12">
           <div className="text-center sm:text-left">
             <p className="text-sm uppercase tracking-[0.28em] text-brand-purple">
@@ -27,9 +29,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-start">
             <Link
               href="/contact"
-              className="w-[70%] inline-flex items-center justify-center rounded-2xl btn-gradient px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
+              className="w-[70%] inline-flex items-center justify-center gap-2 rounded-2xl btn-gradient px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
             >
-              Launch a project
+              <span>Launch a project</span>
+              <Plus
+                size={24}
+                className="text-white stroke-3"
+              />
             </Link>
             <p className="max-w-xl text-center text-sm leading-7 text-slate-300 sm:text-left">
               Start with a quick introduction and we&apos;ll help shape the next phase of your brand

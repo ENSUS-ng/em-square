@@ -27,6 +27,8 @@ export function BrandForm() {
       setLogo("")
       setBrandName("")
     } catch (error) {
+           setLogo("")
+      setBrandName("")
       setStatus({
         ok: false,
         message: error instanceof Error ? error.message : "Could not create brand.",
