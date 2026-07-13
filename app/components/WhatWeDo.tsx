@@ -12,7 +12,7 @@ export function WhatWeDo() {
     <section
       id="what-we-do"
       ref={ref as React.LegacyRef<HTMLElement>}
-      className={`mx-auto mt-24 max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
+      className={`mx-auto mt-16 max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
         revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -60,7 +60,7 @@ export function WhatWeDo() {
 
           <div className="rounded-4xl border border-brand-gold/30 bg-white/5 p-6">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center h-11 w-11 rounded-2xl bg-brand-gold_15">
+              <div className="flex items-center justify-center h-11 w-11 rounded-2xl bg-brand-purple_15">
                 <Image
                   src="/favicon.png"
                   alt="icon"
