@@ -3,7 +3,7 @@
 :root {
   --background: #110c1f;
   --foreground: #f4f4f5;
-  --brand-purple: #7c0fffff;
+  --brand-purple: rgb(139, 52, 244);
   --brand-gold: #ffa80fff;
 }
 

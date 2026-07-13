@@ -1,0 +1,22 @@
+import mongoose from "mongoose"
+
+let isConnected = false
+
+export const connectToDB = async () => {
+  if (isConnected) {
+    console.log("MongoDB is already connected")
+    return
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URL!, {
+      dbName: "em-square",
+      connectTimeoutMS: 30000,
+    })
+
+    isConnected = true
+    console.log("MongoDB connected successfully")
+  } catch (error) {
+    console.log("Mongoose Error;", error)
+  }
+}

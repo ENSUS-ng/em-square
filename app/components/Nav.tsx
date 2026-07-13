@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { useAdmin } from "@/app/hooks/AdminContext"
 
 const sections = [
   { id: "what-we-do", label: "What we do" },
@@ -10,6 +11,7 @@ const sections = [
 
 export function Nav() {
   const [active, setActive] = useState("what-we-do")
+  const { isAuthenticated } = useAdmin()
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -69,6 +71,15 @@ export function Nav() {
           >
             Launch a project
           </Link>
+
+          {isAuthenticated && (
+            <Link
+              href="/admin"
+              className="rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
+            >
+              Admin
+            </Link>
+          )}
         </div>
       </nav>
     </header>

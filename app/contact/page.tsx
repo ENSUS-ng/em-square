@@ -1,4 +1,4 @@
-import ContactForm from "@/app/components/ContactForm"
+import ContactForm from "@/app/components/forms/ContactForm"
 import Link from "next/link"
 
 export default function ContactPage() {
