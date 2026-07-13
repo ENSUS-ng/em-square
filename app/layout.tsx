@@ -17,7 +17,12 @@ export const metadata: Metadata = {
   title: "EM Square | Ensus Media and Marketing",
   description:
     "EM Square is a media and marketing studio focused on brand acceleration through creative storytelling and campaign strategy.",
-}
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  }
 
 export default function RootLayout({
   children,

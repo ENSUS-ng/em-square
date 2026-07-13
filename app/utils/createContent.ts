@@ -27,7 +27,6 @@ export type CreateTeamInput = {
 export type CreateLaunchRequestInput = {
   name: string
   email: string
-  subject: string
   message: string
 }
 
@@ -80,7 +79,7 @@ export async function createTeamMember(input: CreateTeamInput) {
 export async function createLaunchRequest(input: CreateLaunchRequestInput) {
   await connectToDB()
 
-  if (!input.name || !input.email || !input.subject || !input.message) {
+  if (!input.name || !input.email || !input.message) {
     throw new Error("Missing required fields")
   }
 
@@ -89,10 +88,10 @@ export async function createLaunchRequest(input: CreateLaunchRequestInput) {
     throw new Error("Invalid email")
   }
 
-  return LaunchRequest.create({
+  const data = await LaunchRequest.create({
     name: input.name,
     email: input.email,
-    subject: input.subject,
     message: input.message,
   })
+  return {ok: data.name ? true : false}
 }

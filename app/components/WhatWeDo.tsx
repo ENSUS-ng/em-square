@@ -3,6 +3,7 @@
 import { useScrollReveal } from "@/app/hooks/useScrollReveal"
 import { marketingServices, mediaServices } from "@/app/data/demoArrays"
 import { ServiceCard } from "@/app/components/ServiceCard"
+import Image from "next/image"
 
 export function WhatWeDo() {
   const { ref, revealed } = useScrollReveal()
@@ -30,7 +31,16 @@ export function WhatWeDo() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="rounded-4xl border border-brand-purple/30 bg-white/5 p-6">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-brand-purple_15" />
+              <div className="flex items-center justify-center h-11 w-11 rounded-full bg-brand-purple_15">
+                <Image 
+                src="/favicon.png"
+                alt="icon"
+                width={1080}
+                height={720}
+                className='w-[80%] h-[80%]'
+                />
+                </div>
+
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Ensus Media</p>
                 <p className="mt-1 text-2xl font-semibold text-white">Story-led production</p>

@@ -27,7 +27,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-start">
             <Link
               href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
+              className="w-[70%] inline-flex items-center justify-center rounded-2xl btn-gradient px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
             >
               Launch a project
             </Link>

@@ -17,11 +17,6 @@ const contentCards = [
   },
   { id: "brand", title: "Brand", description: "Add a partner or client brand logo and name." },
   { id: "team", title: "Team", description: "Add a team member with a picture, name, and role." },
-  // {
-  //   id: "launch-request",
-  //   title: "Launch request",
-  //   description: "Capture a client launch request directly from the admin flow.",
-  // },
 ]
 
 export default function AddContentPage() {

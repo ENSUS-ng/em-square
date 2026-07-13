@@ -17,6 +17,12 @@ const dashboardCards = [
     href: "/admin/delete-content",
     accent: "from-slate-700 via-slate-600 to-slate-500",
   },
+    {
+    title: "Launch requests",
+    description: "View/delete all launch requests received from clients.",
+     href:"/admin/launch-requests",
+     accent: "from-brand-gold via-amber-500 to-brand-purple"
+  },
 ]
 
 export default function AdminDashboardPage() {
