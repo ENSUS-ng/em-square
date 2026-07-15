@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAdmin } from "@/app/hooks/AdminContext"
 import Image from "next/image"
-import { LayoutDashboard, Plus } from "lucide-react"
+import { LayoutDashboard, Mail } from "lucide-react"
 
 const sections = [
   { id: "what-we-do", label: "What we do" },
@@ -14,12 +14,11 @@ const sections = [
 export function Nav() {
   const [active, setActive] = useState("what-we-do")
   const { isAuthenticated } = useAdmin()
-const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-useEffect(() => {
-  setMounted(true)
-}, [])
-
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -55,13 +54,13 @@ useEffect(() => {
           href="/"
           className="font-semibold text-white w-40 h-12"
         >
-         <Image 
-          src="/em-logo.png"
-          alt='logo'
-          width={1080}
-          height={720}
-          className='w-full h-full border-2'
-         />
+          <Image
+            src="/em-logo.png"
+            alt="logo"
+            width={1080}
+            height={720}
+            className="w-full h-full border-2"
+          />
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
@@ -83,7 +82,10 @@ useEffect(() => {
             href="/contact"
             className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
           >
-         <Plus size={24} className="text-white stroke-2" />
+            <Mail
+              size={24}
+              className="text-white stroke-2"
+            />
           </Link>
 
           {mounted && isAuthenticated ? (
@@ -91,9 +93,14 @@ useEffect(() => {
               href="/admin"
               className="text-sm rounded-2xl btn-gradient-left px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
             >
-          <LayoutDashboard size={24} className="text-white" />
+              <LayoutDashboard
+                size={24}
+                className="text-white"
+              />
             </Link>
-          ): ''}
+          ) : (
+            ""
+          )}
         </div>
       </nav>
     </header>
