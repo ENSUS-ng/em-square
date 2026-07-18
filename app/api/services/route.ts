@@ -8,8 +8,13 @@ export async function GET(req: NextRequest) {
   const typeOfService = req.nextUrl.searchParams.get("type") || ""
   try {
     await connectToDB()
-    const services = await Service.find({ type: typeOfService }).sort({ createdAt: -1 }).lean()
+    let services
+  if(!typeOfService) {
+     services = await Service.find().sort({ createdAt: -1 }).lean()
 
+      } else  {
+        services = await Service.find({ type: typeOfService }).sort({ createdAt: -1 }).lean()
+      }  
     return NextResponse.json({ success: true, data: services })
   } catch (error) {
     console.error("Failed to fetch services", error)

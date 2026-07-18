@@ -11,7 +11,7 @@ import {
 } from "@/app/utils/deleteContent"
 import { fetchBrands, fetchLaunchRequests, fetchServices, fetchTeam } from "@/app/utils/adminData"
 import { useAdmin } from "@/app/hooks/AdminContext"
-type ContentKind = "service" | "brand" | "team" | "launch"
+type ContentKind = "service" | "brand" | "team" | "launch" | "request"
 
 type SectionState = {
   loading: boolean
@@ -91,7 +91,7 @@ export default function DeleteContentPage() {
     { id: "service", label: "Services" },
     { id: "brand", label: "Brands" },
     { id: "team", label: "Team" },
-    { id: "launch", label: "Launch Requests" },
+    { id: "request", label: "Branding Requests" },
   ]
 
   const activeSection =
@@ -101,7 +101,14 @@ export default function DeleteContentPage() {
         ? brands
         : activeKind === "team"
           ? team
-          : launchRequests
+          : activeKind === "request"
+            ? launchRequests
+            : ([] as any)
+
+  const replyEmail = async (email: string) => {
+    window.open(`mailto:${email}`)
+  }
+
   if (!isAuthenticated) return null
 
   return (
@@ -142,7 +149,7 @@ export default function DeleteContentPage() {
               )
             })}
           </div>
-
+ {/* Content list */}
           <div className="mt-8 space-y-3">
             {activeSection.loading ? (
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
@@ -157,7 +164,7 @@ export default function DeleteContentPage() {
                 No items found.
               </div>
             ) : (
-              activeSection.items.map((item) => {
+              activeSection.items.map((item: any) => {
                 const title =
                   activeKind === "service"
                     ? (item.heading as string)
@@ -165,7 +172,7 @@ export default function DeleteContentPage() {
                       ? (item.brandName as string)
                       : activeKind === "team"
                         ? (item.name as string)
-                        : `${item.name as string} — ${item.subject as string}`
+                        : `${item.name as string}`
 
                 return (
                   <div
@@ -173,7 +180,12 @@ export default function DeleteContentPage() {
                     className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div>
-                      <p className="text-base font-semibold text-white">{title}</p>
+                      {activeKind === 'service' &&
+                       <span className={`capitalize text-xs font-medium rounded-xl px-8 py-1  text-gray-200
+                       ${item.type === 'media' ? 'bg-brand-purple/40' : 'bg-brand-gold/60'}`}>
+                        {item.type}
+                        </span>}
+                      <p className="text-base font-semibold text-white mt-2">{title}</p>
                       <p className="mt-1 text-sm text-slate-400">
                         {activeKind === "service"
                           ? (item.about as string)
@@ -182,8 +194,17 @@ export default function DeleteContentPage() {
                             : activeKind === "team"
                               ? (item.role as string)
                               : (item.email as string)}
+                              
                       </p>
                     </div>
+                    {activeKind === "request" && (
+                      <button
+                        onClick={() => void replyEmail(item.email as string)}
+                        className="rounded-full border cursor-pointer border-emerald-400/70 bg-emerald-500/50 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        Reply Email
+                      </button>
+                    )}
                     <button
                       onClick={() => void removeItem(activeKind, item._id as string)}
                       disabled={deletingId === item._id}

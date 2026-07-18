@@ -103,7 +103,7 @@ export function PartnersTeam() {
 
           {!isLoading && (
             <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/5 px-4 py-5">
-              <div className="flex min-h-[96px] w-[220%] items-center gap-6 whitespace-nowrap animate-marque">
+              <div className="flex min-h-[96px] w-[220%] items-center gap-6 whitespace-nowrap animate-marquee">
                 {brands.map((brand: any) => (
                   <div
                     key={brand._id}

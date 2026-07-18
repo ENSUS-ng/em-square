@@ -37,7 +37,7 @@ const LaunchRequests = () => {
             </p>
 
             <h1 className="text-4xl font-semibold text-white">
-              Launch Requests
+              Branding Requests
             </h1>
 
             <p className="max-w-2xl text-base leading-7 text-slate-300">
@@ -54,7 +54,7 @@ const LaunchRequests = () => {
             ) : requests.length === 0 ? (
               <div className="rounded-3xl border border-dashed border-white/10 py-20 text-center">
                 <h3 className="text-xl font-semibold text-white">
-                  No launch requests yet
+                  No branding requests yet
                 </h3>
 
                 <p className="mt-3 text-slate-400">
