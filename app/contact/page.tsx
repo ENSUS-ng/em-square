@@ -18,7 +18,7 @@ export default function ContactPage() {
           <div className="w-full mx-auto mt-10 grid gap-6 md:grid-cols-2 items-center ">
             <div className="rounded-[2rem] border border-white/10 bg-gray-600/40 p-6">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
-              <p className="mt-3 text-lg font-semibold text-white">ensusacademy@gmail.com</p>
+              <p className="mt-3 text-lg font-semibold text-white">ensusmediandmarketing@gmail.com</p>
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-gray-600/40 p-6">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Office</p>
@@ -46,11 +46,11 @@ export default function ContactPage() {
             <div className="flex flex-col items-start gap-4">
               {/* <div className="rounded-[2rem] border border-white/10 bg-gray-600/40 p-6">
                 <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
-                <p className="mt-3 text-lg font-semibold text-white">ensusacademy@gmail.com</p>
+                <p className="mt-3 text-lg font-semibold text-white">ensusmediandmarketing@gmail.com</p>
               </div> */}
 
               <Link
-                href="mailto:ensusacademy@gmail.com"
+                href="mailto:ensusmediandmarketing@gmail.com"
                 className="inline-flex self-center items-center justify-center rounded-2xl btn-gradient px-8 py-3 text-sm font-semibold text-white shadow-[0_20px_60px_-30px_rgba(124,15,255,0.18)]"
               >
                 Email us directly
