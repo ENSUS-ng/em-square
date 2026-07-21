@@ -1,28 +1,30 @@
 import ContactForm from "@/app/components/forms/ContactForm"
 import Link from "next/link"
 
-export default function ContactPage() {
+export default function BrandingReqPagee() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(124,15,255,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_28%),#0e0b1d] text-white">
-      <main className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-4 py-12">
+      <main className="mx-auto flex min-h-screen  max-w-5xl flex-col justify-center px-4 py-12">
         <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 px-6 shadow-[0_50px_120px_-100px_rgba(0,0,0,0.4)]">
-          <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Contact</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Make a branding request</p>
           <h1 className="mt-4 text-5xl font-semibold text-white sm:text-6xl">
             Let&apos;s launch your next project.
           </h1>
-          <p className="mt-6 max-w-5xl text-lg leading-8 text-slate-300 px-3">
+
+          <p className="mt-6 max-w-5xl text-md leading-8 text-slate-300 px-3">
             Share your goals and we&apos;ll help build the strategy, creative and channels to make
             your brand feel fresher, louder and more connected.
           </p>
 
           <div className="w-full mx-auto mt-10 grid gap-6 md:grid-cols-2 items-center ">
-            <div className="rounded-[2rem] border border-white/10 bg-gray-600/40 p-6">
+            <div className="rounded-4xl min-w-50 max-w-full border border-white/10 bg-gray-600/40 p-6 pl-6 pr-3">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
-              <p className="mt-3 text-lg font-semibold text-white">ensusmediandmarketing@gmail.com</p>
+              <div className="w-full  break-all mt-3 text-sm font-semibold text-white">ensusmediandmarketing@gmail.com</div>
             </div>
-            <div className="rounded-[2rem] border border-white/10 bg-gray-600/40 p-6">
+            
+            <div className="rounded-4xl min-w-50 max-w-full border border-white/10 bg-gray-600/40 p-6 pl-6 pr-3">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Office</p>
-              <p className="mt-3 text-lg font-semibold text-white">Lagos, Nigeria</p>
+              <div className="mt-3 text-sm break-all font-semibold text-white">Lagos, Nigeria</div>
             </div>
           </div>
 

@@ -48,7 +48,7 @@ export function Nav() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xs">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 pl-0 pr-2 py-4 text-sm text-slate-200">
         <Link
           href="/"
@@ -79,7 +79,7 @@ export function Nav() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="/contact"
+            href="/branding-request"
             className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
           >
             <Mail

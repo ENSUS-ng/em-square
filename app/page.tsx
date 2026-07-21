@@ -1,10 +1,9 @@
 import { Nav } from "@/app/components/Nav"
-import { PartnersTeam } from "@/app/components/PartnersTeam"
+import { BrandsTeam } from "@/app/components/BrandsTeam"
 import { WhatWeDo } from "@/app/components/WhatWeDo"
 import { aboutText } from "@/app/data/demoArrays"
 import { Plus, Mail } from "lucide-react"
 import Link from "next/link"
-
 
 export default function Home() {
   return (
@@ -28,7 +27,7 @@ export default function Home() {
           </div>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-start">
             <Link
-              href="/contact"
+              href="/branding-request"
               className="w-[90%] md:w-[60%] lg:w-[40%] inline-flex items-center justify-center gap-2 rounded-2xl btn-gradient px-5 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
             >
               <span>Start Your Branding Journey</span>
@@ -46,7 +45,7 @@ export default function Home() {
       </main>
 
       <WhatWeDo />
-      <PartnersTeam />
+      <BrandsTeam />
     </div>
   )
 }

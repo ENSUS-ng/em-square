@@ -54,7 +54,7 @@ function TeamsSection({ teams }: { teams: any[] }) {
   )
 }
 
-export function PartnersTeam() {
+export function BrandsTeam() {
   const { ref, revealed } = useScrollReveal()
   const [brands, setBrands] = useState<any[]>([])
   const [teams, setTeams] = useState<any[]>([])
@@ -77,7 +77,7 @@ export function PartnersTeam() {
 
   return (
     <section
-      id="partners-team"
+      id="brands-team"
       ref={ref as any}
       className={`mx-auto mt-24 max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
         revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

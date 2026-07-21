@@ -33,8 +33,6 @@ export function WhatWeDo() {
     loadServices()
   }, [])
 
-  console.log({ mediaServices, marketingServices })
-
   return (
     <section
       id="what-we-do"
