@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Questrial,Poppins } from "next/font/google"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -14,6 +14,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const questrialSans = Questrial({
+  weight: ["400"],
+  variable: "--font-questrial",
+})
+
+const poppinsSans = Poppins({
+  weight:["300"],
+  variable: "--font-poppins",
+})
+
 export const metadata: Metadata = {
   title: "EM Square | Ensus Media and Marketing",
   description:
@@ -23,7 +33,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
-  }
+}
 
 export default function RootLayout({
   children,
@@ -33,15 +43,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistMono.variable}  ${poppinsSans.variable} ${questrialSans.variable}   h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0e0b1d] text-slate-100">
         <AdminProvider>
-          <Suspense>
-         {children}   
-          </Suspense>
-          
-          </AdminProvider>
+          <Suspense>{children}</Suspense>
+        </AdminProvider>
       </body>
     </html>
   )

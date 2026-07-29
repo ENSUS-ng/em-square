@@ -37,7 +37,7 @@ export function WhatWeDo() {
     <section
       id="what-we-do"
       ref={ref as any}
-      className={`mx-auto mt-16 max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
+      className={`mx-auto  max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
         revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
