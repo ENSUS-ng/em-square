@@ -28,12 +28,18 @@ export default function AdminAuthPage() {
 
         {isPermissionGranted !== "false" && (
           <div className="mt-8 flex items-center justify-center gap-3">
-            <SignInButton forceRedirectUrl='/admin'>
+            <SignInButton
+              mode="redirect"
+              forceRedirectUrl="/admin"
+            >
               <button className="cursor-pointer w-40 rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white">
                 Sign in
               </button>
             </SignInButton>
-            <SignUpButton forceRedirectUrl='/admin'>
+            <SignUpButton   
+              mode="redirect"
+              forceRedirectUrl='/admin'
+            >
               <button className="cursor-pointer w-40 rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">
                 Sign up
               </button>

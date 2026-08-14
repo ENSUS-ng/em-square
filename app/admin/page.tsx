@@ -4,7 +4,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useUser, SignInButton, SignUpButton } from "@clerk/nextjs"
 
-
 const dashboardCards = [
   {
     title: "Add Content",
@@ -27,10 +26,8 @@ const dashboardCards = [
 ]
 
 export default function AdminDashboardPage() {
-
   const { isSignedIn } = useUser()
 
- 
   if (!isSignedIn) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.26),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.18),transparent_24%),#0e0b1d] px-4 py-10 text-white">
@@ -38,22 +35,20 @@ export default function AdminDashboardPage() {
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
           <h1 className="mt-4 text-3xl font-semibold">Sign in to continue</h1>
           <p className="mt-3 text-sm leading-7 text-slate-300">
-            This area is reserved for the site administrator. Sign in or create an account to continue.
+            This area is reserved for the site administrator. Sign in or create an account to
+            continue.
           </p>
 
-          {/* <div className="mt-8 flex gap-3">
-            <SignInButton forceRedirectUrl={'/admin'}>
-              <button className="rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white">Sign in</button>
-            </SignInButton>
-            <SignUpButton forceRedirectUrl={'/admin'}>
-              <button className="rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">Sign up</button>
-            </SignUpButton>
-          </div> */}
+          <Link
+            href={`/admin/auth?ispermissiongranted=true`}
+            className="text-brand-purple font-medium"
+          >
+            Go To Auth
+          </Link>
         </div>
       </div>
     )
   }
-
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.24),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] px-4 py-16 text-white sm:px-6 lg:px-8">
@@ -104,5 +99,4 @@ export default function AdminDashboardPage() {
       </div>
     </div>
   )
-
 }

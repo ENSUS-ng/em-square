@@ -7,14 +7,13 @@ import { useUser } from "@clerk/nextjs"
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const { isSignedIn } = useUser()
   const router = useRouter()
-  const pathname = usePathname()
 
-  useEffect(() => {
-    if (!isSignedIn) {
-      // redirect unauthenticated users to admin auth page
-      router.replace(`/admin/auth?ispermissiongranted=true`)
-    }
-  }, [isSignedIn, router, pathname])
+//   useEffect(() => {
+//     if (!isSignedIn) {
+//       // redirect unauthenticated users to admin auth page
+//       router.replace(`/admin/auth?ispermissiongranted=true`)
+//     }
+//   }, [isSignedIn])
 
 //   if (!isSignedIn) return null
 

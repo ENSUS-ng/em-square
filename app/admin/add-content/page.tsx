@@ -51,19 +51,27 @@ export default function AddContentPage() {
           <p className="mt-3 text-sm leading-7 text-slate-300">
             You must be signed in to access the admin area.
           </p>
-
+{/* 
           <div className="mt-8 flex gap-3">
-            <SignInButton>
+            <SignInButton
+              mode="redirect"
+              redirectUrl={`/admin/add-content${searchParams.toString() ? `?${searchParams.toString()}` : ""}`}
+            >
               <button className="rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white">
                 Sign in
               </button>
             </SignInButton>
-            <SignUpButton>
+            <SignUpButton
+              mode="redirect"
+              redirectUrl={`/admin/add-content${searchParams.toString() ? `?${searchParams.toString()}` : ""}`}
+            >
               <button className="rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">
                 Sign up
               </button>
             </SignUpButton>
-          </div>
+          </div> */}
+
+
         </div>
       </div>
     )
