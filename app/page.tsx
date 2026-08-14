@@ -1,3 +1,4 @@
+'use client'
 import { Nav } from "@/app/components/Nav"
 import { BrandsTeam } from "@/app/components/BrandsTeam"
 import { WhatWeDo } from "@/app/components/WhatWeDo"

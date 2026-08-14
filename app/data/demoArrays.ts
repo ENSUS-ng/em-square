@@ -5,13 +5,13 @@ export const mediaServices = [
     title: "Cinematic event coverage",
     description:
       "Full-scale production for launches, activations and brand gatherings with a cinematic storytelling approach.",
-    link: "Learn more",
+    // link: "Learn more",
   },
   {
     title: "Visual brand identity",
     description:
       "Creative direction, motion design and campaign visuals that bring your brand to life with premium polish.",
-    link: "Learn more",
+    // link: "Learn more",
   },
   {
     title: "Social content systems",

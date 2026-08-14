@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { useAdmin } from "@/app/hooks/AdminContext"
+import { useUser, SignInButton, SignUpButton } from "@clerk/nextjs"
+
 
 const dashboardCards = [
   {
@@ -26,61 +27,33 @@ const dashboardCards = [
 ]
 
 export default function AdminDashboardPage() {
-  const [passkey, setPasskey] = useState("")
-  const [error, setError] = useState("")
-  const { isAuthenticated, login } = useAdmin()
 
-  const handleUnlock = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const { isSignedIn } = useUser()
 
-    const success = login(passkey)
-
-    if (success) {
-      setError("")
-      return
-    }
-
-    setError("Incorrect passkey. Please try again.")
-  }
-  if (!isAuthenticated) {
+ 
+  if (!isSignedIn) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.26),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.18),transparent_24%),#0e0b1d] px-4 py-10 text-white">
         <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
-          <h1 className="mt-4 text-3xl font-semibold">Enter your passkey</h1>
+          <h1 className="mt-4 text-3xl font-semibold">Sign in to continue</h1>
           <p className="mt-3 text-sm leading-7 text-slate-300">
-            This area is reserved for the site administrator. Use the password field below to
-            continue.
+            This area is reserved for the site administrator. Sign in or create an account to continue.
           </p>
 
-          <form
-            className="mt-8 space-y-4"
-            onSubmit={handleUnlock}
-          >
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-200">Passkey</span>
-              <input
-                type="password"
-                value={passkey}
-                onChange={(event) => setPasskey(event.target.value)}
-                className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500"
-                placeholder="Enter passkey"
-              />
-            </label>
-
-            {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-
-            <button
-              type="submit"
-              className="w-full rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white transition hover:brightness-110"
-            >
-              Unlock dashboard
-            </button>
-          </form>
+          {/* <div className="mt-8 flex gap-3">
+            <SignInButton forceRedirectUrl={'/admin'}>
+              <button className="rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white">Sign in</button>
+            </SignInButton>
+            <SignUpButton forceRedirectUrl={'/admin'}>
+              <button className="rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">Sign up</button>
+            </SignUpButton>
+          </div> */}
         </div>
       </div>
     )
   }
+
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.24),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] px-4 py-16 text-white sm:px-6 lg:px-8">
@@ -131,4 +104,5 @@ export default function AdminDashboardPage() {
       </div>
     </div>
   )
+
 }

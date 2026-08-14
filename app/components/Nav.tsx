@@ -2,9 +2,25 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { useAdmin } from "@/app/hooks/AdminContext"
 import Image from "next/image"
 import { LayoutDashboard, Mail } from "lucide-react"
+
+import { SignInButton, SignUpButton, UserButton, Show } from "@clerk/nextjs"
+
+export function Navbar() {
+  return (
+    <nav>
+      <Show when="signed-out">
+        <SignInButton />
+        <SignUpButton />
+      </Show>
+
+      <Show when="signed-in">
+        <UserButton />
+      </Show>
+    </nav>
+  )
+}
 
 const sections = [
   { id: "what-we-do", label: "What we do" },
@@ -13,7 +29,6 @@ const sections = [
 
 export function Nav() {
   const [active, setActive] = useState("what-we-do")
-  const { isAuthenticated } = useAdmin()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -78,17 +93,10 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="/branding-request"
-            className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
-          >
-            <Mail
-              size={24}
-              className="text-white stroke-2"
-            />
-          </Link>
+        
 
-          {mounted && isAuthenticated ? (
+          <Show when="signed-in">
+            <UserButton />
             <Link
               href="/admin"
               className="text-sm rounded-2xl btn-gradient-left px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
@@ -98,9 +106,16 @@ export function Nav() {
                 className="text-white"
               />
             </Link>
-          ) : (
-            ""
-          )}
+          </Show> 
+           <Link
+            href="/branding-request"
+            className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
+          >
+            <Mail
+              size={24}
+              className="text-white stroke-2"
+            />
+          </Link>
         </div>
       </nav>
     </header>

@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Questrial,Poppins } from "next/font/google"
+import { Geist, Geist_Mono, Questrial, Poppins } from "next/font/google"
 import { Suspense } from "react"
 import "./globals.css"
 
 import { AdminProvider } from "./hooks/AdminContext"
+import { ClerkProvider } from "@clerk/nextjs"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,7 +22,7 @@ const questrialSans = Questrial({
 })
 
 const poppinsSans = Poppins({
-  weight:["300"],
+  weight: ["300"],
   variable: "--font-poppins",
 })
 
@@ -46,9 +48,12 @@ export default function RootLayout({
       className={`${geistMono.variable}  ${poppinsSans.variable} ${questrialSans.variable}   h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0e0b1d] text-slate-100">
-        <AdminProvider>
+        {/* <AdminProvider> */}
+        <ClerkProvider>
           <Suspense>{children}</Suspense>
-        </AdminProvider>
+        </ClerkProvider>
+
+        {/* </AdminProvider> */}
       </body>
     </html>
   )

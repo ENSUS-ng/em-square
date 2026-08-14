@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react"
+import { useUser, useClerk } from "@clerk/nextjs"
 
 const PASSKEYS = ["basket86"]
 const STORAGE_KEY = "emsquare_admin_auth"
@@ -50,11 +51,26 @@ export function AdminProvider({ children }: { children: ReactNode }) {
 }
 
 export function useAdmin() {
-  const context = useContext(AdminContext)
+  // Prefer Clerk's auth state where available
+  const { isSignedIn } = useUser()
+  const clerk = useClerk()
 
-  if (!context) {
-    throw new Error("useAdmin must be used inside AdminProvider")
+  const login = (_passkey: string) => {
+    // legacy passkey flow removed; return false
+    return false
   }
 
-  return context
+  const logout = async () => {
+    try {
+      await clerk.signOut()
+    } catch (e) {
+      // no-op
+    }
+  }
+
+  return {
+    isAuthenticated: !!isSignedIn,
+    login,
+    logout,
+  }
 }

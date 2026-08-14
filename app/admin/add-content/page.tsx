@@ -1,14 +1,15 @@
 "use client"
 
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-import { useMemo } from "react"
+import { useSearchParams, usePathname } from "next/navigation"
+import { useMemo, useState } from "react"
+import { useUser, SignInButton, SignUpButton } from "@clerk/nextjs"
 
 import { BrandForm } from "@/app/components/forms/BrandForm"
 import { LaunchRequestForm } from "@/app/components/forms/LaunchRequestForm"
 import { ServiceForm } from "@/app/components/forms/ServiceForm"
 import { TeamForm } from "@/app/components/forms/TeamForm"
-import { useAdmin } from "@/app/hooks/AdminContext"
+
 const contentCards = [
   {
     id: "service",
@@ -22,7 +23,9 @@ const contentCards = [
 export default function AddContentPage() {
   const searchParams = useSearchParams()
   const createMode = searchParams.get("create-mode")
-  const { isAuthenticated } = useAdmin()
+  const pathname = usePathname()
+  const { isSignedIn, user } = useUser()
+  const [linkVisible, setLinkVisible] = useState(false)
   const activeForm = useMemo(() => {
     switch (createMode) {
       case "brand":
@@ -37,7 +40,48 @@ export default function AddContentPage() {
     }
   }, [createMode])
 
-  if (!isAuthenticated) return null
+  const isPermissionGranted = searchParams.get("ispermissiongranted") === "true"
+
+  if (!isSignedIn) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.26),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.18),transparent_24%),#0e0b1d] px-4 py-10 text-white">
+        <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+          <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
+          <h1 className="mt-4 text-3xl font-semibold">Sign in to continue</h1>
+          <p className="mt-3 text-sm leading-7 text-slate-300">
+            You must be signed in to access the admin area.
+          </p>
+
+          <div className="mt-8 flex gap-3">
+            <SignInButton>
+              <button className="rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white">
+                Sign in
+              </button>
+            </SignInButton>
+            <SignUpButton>
+              <button className="rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">
+                Sign up
+              </button>
+            </SignUpButton>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // if (!isPermissionGranted && user?.publicMetadata?.role !== "superadmin") {
+  //   return (
+  //     <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.26),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.18),transparent_24%),#0e0b1d] px-4 py-10 text-white">
+  //       <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+  //         <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Access blocked</p>
+  //         <h1 className="mt-4 text-3xl font-semibold">Permission required</h1>
+  //         <p className="mt-3 text-sm leading-7 text-slate-300">
+  //           This invite link has not been validated yet. Ask a superadmin to validate the link.
+  //         </p>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(124,15,255,0.24),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] px-4 py-16 text-white sm:px-6 lg:px-8">
@@ -52,12 +96,47 @@ export default function AddContentPage() {
                 separately by your client flow.
               </p>
             </div>
-            <Link
-              href="/admin"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
-            >
-              Back to dashboard
-            </Link>
+            <div className="flex items-center gap-3">
+              {user?.publicMetadata?.role === "superadmin" ? (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setLinkVisible((v) => !v)}
+                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
+                  >
+                    {linkVisible ? "Hide invite" : "Validate link"}
+                  </button>
+                  {linkVisible ? (
+                    <div className="inline-flex items-center gap-2">
+                      <input
+                        readOnly
+                        value={
+                          typeof window !== "undefined"
+                            ? `${window.location.origin}/admin/add-content?ispermissiongranted=true`
+                            : ""
+                        }
+                        className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-slate-200"
+                      />
+                      <button
+                        onClick={() => {
+                          const text = `${typeof window !== "undefined" ? window.location.origin : ""}/admin/add-content?ispermissiongranted=true`
+                          navigator.clipboard?.writeText(text)
+                        }}
+                        className="inline-flex items-center justify-center rounded-full btn-gradient px-4 py-2 text-sm font-medium text-white"
+                      >
+                        Copy link
+                      </button>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+
+              <Link
+                href="/admin"
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
+              >
+                Back to dashboard
+              </Link>
+            </div>
           </div>
 
           <div className="mt-10 flex flex-col gap-4 xl:flex-row xl:items-start">
