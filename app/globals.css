@@ -4,7 +4,7 @@
   color-scheme: dark;
   --background: #101820;
   --foreground: #f5f2ec;
-  --brand-purple: #78a6a3;
+  --brand-purple: #7043a1;
   --brand-gold: #e9a66f;
 }
 
@@ -35,10 +35,10 @@ body {
 }
 
 .btn-gradient {
-  background-image: linear-gradient(110deg, #4f7f7a, #d48660);
+  background-image: linear-gradient(110deg, #461483, #d48660);
 }
 .btn-gradient-left {
-  background-image: linear-gradient(110deg, #d48660, #4f7f7a);
+  background-image: linear-gradient(110deg, #d48660, #461483);
 }
 
 .btn-gold-gradient {
