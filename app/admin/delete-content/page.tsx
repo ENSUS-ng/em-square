@@ -138,14 +138,16 @@ export default function DeleteContentPage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Delete content</p>
-              <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">Remove stored content</h1>
-              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
+              <h1 className="mt-2 text-gray-700 text-3xl font-semibold sm:text-4xl">
+                Remove stored content
+              </h1>
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-500 sm:text-base">
                 Review the items below and delete anything you no longer want published.
               </p>
             </div>
             <Link
               href="/admin"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-full border border-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100"
             >
               Back to dashboard
             </Link>
@@ -168,8 +170,8 @@ export default function DeleteContentPage() {
                   onClick={() => setActiveKind(tab.id)}
                   className={`rounded-full border px-4 py-2 text-sm transition ${
                     isActive
-                      ? "border-brand-purple/60 bg-brand-purple/15 text-white"
-                      : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10"
+                      ? "border-violet-700/80 bg-violet-500/60 text-white shadow-[0_10px_30px_-18px_rgba(139,92,246,0.9)]"
+                      : "border-white/10 bg-white/5 text-slate-500 hover:bg-white/10"
                   }`}
                 >
                   {tab.label}
@@ -211,10 +213,7 @@ export default function DeleteContentPage() {
                   >
                     <div>
                       {activeKind === "service" && (
-                        <span
-                          className={`capitalize text-xs font-medium rounded-xl px-8 py-1  text-gray-200
-                       ${item.type === "media" ? "bg-brand-purple/40" : "bg-brand-gold/60"}`}
-                        >
+                        <span className="rounded-xl bg-gray-200 px-8 py-1 text-xs font-medium capitalize text-gray-700">
                           {item.type}
                         </span>
                       )}
@@ -234,7 +233,7 @@ export default function DeleteContentPage() {
                     {activeKind === "request" && (
                       <button
                         onClick={() => void replyEmail(item.email as string)}
-                        className="rounded-full border cursor-pointer border-emerald-400/70 bg-emerald-500/50 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-full border cursor-pointer border-emerald-700/60 bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         Reply Email
                       </button>
@@ -242,7 +241,7 @@ export default function DeleteContentPage() {
                     <button
                       onClick={() => void removeItem(activeKind, item._id as string)}
                       disabled={deletingId === item._id}
-                      className="rounded-full border cursor-pointer border-rose-400/40 bg-rose-500/10 px-4 py-2 text-sm font-medium text-rose-200 transition hover:bg-rose-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="rounded-full border cursor-pointer border-rose-700/50 bg-rose-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-rose-800 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {deletingId === item._id ? "Deleting..." : "Delete"}
                     </button>

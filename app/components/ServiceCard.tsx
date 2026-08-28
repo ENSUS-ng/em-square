@@ -19,7 +19,7 @@ export function ServiceCard({ title, description, accent, link }: ServiceCardPro
   return (
     <Link
       href={`/services/${link}`}
-      className={`group block rounded-3xl ${border} bg-white/5 px-6 py-7 transition duration-300 hover:-translate-y-1 hover:bg-white/10 ${hoverShadow}`}
+      className={`group block rounded-3xl ${border} bg-white px-6 py-7 transition duration-300 hover:-translate-y-1 hover:bg-slate-50 ${hoverShadow}`}
     >
       <span className={accentText}>
         {accent === "purple" ? (
@@ -34,8 +34,8 @@ export function ServiceCard({ title, description, accent, link }: ServiceCardPro
           />
         )}
       </span>
-      <h3 className="mt-3 text-xl font-semibold text-white">{title}</h3>
-      <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
+      <h3 className="mt-3 text-xl font-semibold text-slate-900">{title}</h3>
+      <p className="mt-4 text-sm leading-7 text-slate-500">{description}</p>
       <div className={`mt-6 flex items-center justify-between text-sm font-semibold ${accentText}`}>
         <span>Explore service</span>
         <ArrowUpRight

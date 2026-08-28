@@ -19,21 +19,21 @@ function TeamsSection({ teams }: { teams: any[] }) {
       <div className="mx-auto max-w-5xl space-y-3 text-center lg:text-left">
         <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Meet the team</p>
 
-        <h2 className="text-4xl font-semibold text-white md:text-5xl">
+        <h2 className="text-4xl font-semibold text-slate-900 md:text-5xl">
           The creative team behind every launch.
         </h2>
 
-        <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-300 lg:mx-0">
+        <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-500 lg:mx-0">
           The people turning ideas into memorable campaigns and productions.
         </p>
       </div>
 
-      <div className="rounded-4xl border border-white/10 bg-white/5 p-8">
+      <div className="rounded-4xl border border-slate-200 bg-slate-50 p-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {teams.map((member: any) => (
             <div
               key={member._id}
-              className="rounded-3xl border border-white/10 bg-slate-950/30 p-6 transition hover:border-brand-purple/30"
+              className="rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-brand-purple/30"
             >
               <Image
                 src={member.picture}
@@ -43,7 +43,7 @@ function TeamsSection({ teams }: { teams: any[] }) {
                 className="h-20 w-20 rounded-full object-cover"
               />
 
-              <h3 className="mt-5 text-xl font-semibold text-white">{member.name}</h3>
+              <h3 className="mt-5 text-xl font-semibold text-slate-900">{member.name}</h3>
 
               <p className="mt-2 text-sm uppercase tracking-[0.24em] text-brand-gold">
                 {member.role}
@@ -94,12 +94,12 @@ export function BrandsTeam() {
                 Brands we work with
               </p>
 
-              <h2 className="text-4xl font-semibold text-white md:text-5xl">
+              <h2 className="text-4xl font-semibold text-slate-900 md:text-5xl">
                 We're trusted by ambitious brands to create compelling media and marketing
                 experiences.
               </h2>
 
-              <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-300 lg:mx-0">
+              <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-500 lg:mx-0">
                 A showcase of brands we have partnered with.
               </p>
             </div>
@@ -118,12 +118,12 @@ export function BrandsTeam() {
           </div>
 
           {!isLoading && (
-            <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/5 px-4 py-5">
+            <div className="overflow-hidden rounded-4xl border border-slate-200 bg-slate-50 px-4 py-5">
               <div className="flex min-h-24 w-[220%] items-center gap-6 whitespace-nowrap animate-marquee">
                 {brands.map((brand: any) => (
                   <div
                     key={brand._id}
-                    className="inline-flex min-w-55 items-center gap-10 rounded-3xl border border-white/10 bg-slate-950/30 px-5 py-4 text-sm text-slate-200"
+                    className="inline-flex min-w-55 items-center gap-10 rounded-3xl border border-slate-200 bg-white px-5 py-4 text-sm text-slate-700"
                   >
                     <Image
                       src={brand.logo}

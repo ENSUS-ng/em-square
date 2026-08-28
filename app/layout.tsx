@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistMono.variable}  ${poppinsSans.variable} ${questrialSans.variable}   h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0e0b1d] text-slate-100">
+      <body className="min-h-full flex flex-col bg-white text-slate-800">
         {/* <AdminProvider> */}
         <ClerkProvider>
           <Suspense>{children}</Suspense>

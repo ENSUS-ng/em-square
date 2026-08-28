@@ -64,8 +64,8 @@ export default function ContactForm() {
         {/* Success Icon */}
         <div className="relative">
           <div className="absolute inset-0 rounded-full bg-emerald-500/30 blur-2xl" />
-          <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg shadow-indigo-500/30">
-            <Check className="h-12 w-12 stroke-[3] text-white" />
+          <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br from-emerald-400 to-emerald-600 shadow-lg shadow-indigo-500/30">
+            <Check className="h-12 w-12 stroke-3 text-white" />
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function ContactForm() {
         {/* CTA */}
         <Link
           href="/"
-          className="text-sm mt-6 inline-flex items-center justify-center rounded-2xl btn-gradient px-8 py-3 font-semibold text-white shadow-lg shadow-indigo-500/20 transition-all duration-300 hover:shadow-indigo-500/40"
+          className="mt-6 inline-flex items-center justify-center rounded-2xl border border-gray-700 bg-white px-8 py-3 text-sm font-semibold text-gray-800 shadow-lg transition-all duration-300 hover:bg-gray-100"
         >
           Go back home
         </Link>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none focus:ring-2 focus:ring-amber-400 transition-shadow focus:shadow-[0_8px_24px_-12px_rgba(255,168,15,0.12)]"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition-shadow focus:ring-2 focus:ring-brand-gold focus:shadow-[0_8px_24px_-12px_rgba(233,166,111,0.25)]"
             placeholder="Your name"
             aria-label="Name"
           />
@@ -107,13 +107,12 @@ export default function ContactForm() {
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none focus:ring-2 focus:ring-amber-400 transition-shadow focus:shadow-[0_8px_24px_-12px_rgba(255,168,15,0.12)]"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition-shadow focus:ring-2 focus:ring-brand-gold focus:shadow-[0_8px_24px_-12px_rgba(233,166,111,0.25)]"
             placeholder="brand@gmail.com"
             aria-label="Email"
           />
         </label>
       </div>
-
 
       <label className="flex flex-col">
         <span className="mb-1 text-sm text-slate-300">Message</span>
@@ -121,7 +120,7 @@ export default function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={6}
-          className="resize-none rounded-xl border border-white/10 bg-transparent px-4 py-3 leading-relaxed text-white outline-none focus:ring-2 focus:ring-amber-400 transition-shadow focus:shadow-[0_8px_24px_-12px_rgba(255,168,15,0.12)]"
+          className="resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 leading-relaxed text-slate-900 outline-none transition-shadow focus:ring-2 focus:ring-brand-gold focus:shadow-[0_8px_24px_-12px_rgba(233,166,111,0.25)]"
           placeholder="Tell us about your project"
           aria-label="Message"
         />

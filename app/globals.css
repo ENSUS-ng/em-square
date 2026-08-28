@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  --background: #101820;
-  --foreground: #f5f2ec;
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #24313a;
   --brand-purple: #7043a1;
   --brand-gold: #e9a66f;
 }
@@ -19,8 +19,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #101820;
-    --foreground: #f5f2ec;
+    --background: #ffffff;
+    --foreground: #24313a;
     --color-brand-purple: var(--brand-purple);
     --color-brand-gold: var(--brand-gold);
   }
@@ -54,7 +54,7 @@ body {
 }
 
 .bg-brand-gold {
-  background-color: #ffa80f;
+  background-color: #e9a66f;
 }
 
 .bg-brand-purple_15 {
@@ -101,4 +101,30 @@ button:active,
 a:active {
   transition: transform 0.2s ease;
   transform: scale(0.96);
+}
+
+/* Keep controls legible and consistent across public and admin forms. */
+input:not([type="file"]),
+textarea,
+select {
+  border-color: #374151 !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+input[type="file"] {
+  border-color: #374151 !important;
+  color: #4b5563 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+.text-slate-300,
+.text-slate-400,
+.text-gray-300,
+.text-gray-400 {
+  color: #6b7280 !important;
 }

@@ -3,28 +3,28 @@ import Link from "next/link"
 
 export default function BrandingReqPagee() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(124,15,255,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_28%),#0e0b1d] text-white">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(120,166,163,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(233,166,111,0.13),transparent_28%),#ffffff] text-slate-800">
       <main className="mx-auto flex min-h-screen  max-w-5xl flex-col justify-center px-4 py-12">
-        <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 px-6 shadow-[0_50px_120px_-100px_rgba(0,0,0,0.4)]">
+        <div className="rounded-[2.5rem] border border-slate-200 bg-white/90 p-10 px-6 shadow-[0_30px_90px_-60px_rgba(36,49,58,0.25)]">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Make a branding request</p>
-          <h1 className="mt-4 text-5xl font-semibold text-white sm:text-6xl">
+          <h1 className="mt-4 text-5xl font-semibold text-slate-900 sm:text-6xl">
             Let&apos;s launch your next project.
           </h1>
 
-          <p className="mt-6 max-w-5xl text-md leading-8 text-slate-300 px-3">
+          <p className="mt-6 max-w-5xl px-3 text-md leading-8 text-slate-600">
             Share your goals and we&apos;ll help build the strategy, creative and channels to make
             your brand feel fresher, louder and more connected.
           </p>
 
           <div className="w-full mx-auto mt-10 grid gap-6 md:grid-cols-2 items-center ">
-            <div className="rounded-4xl min-w-50 max-w-full border border-white/10 bg-gray-600/40 p-6 pl-6 pr-3">
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
-              <div className="w-full  break-all mt-3 text-sm font-semibold text-white">ensusmediandmarketing@gmail.com</div>
+            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 p-6 pl-6 pr-3">
+              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Email</p>
+              <div className="mt-3 w-full break-all text-sm font-semibold text-slate-900">ensusmediandmarketing@gmail.com</div>
             </div>
             
-            <div className="rounded-4xl min-w-50 max-w-full border border-white/10 bg-gray-600/40 p-6 pl-6 pr-3">
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Office</p>
-              <div className="mt-3 text-sm break-all font-semibold text-white">Lagos, Nigeria</div>
+            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 p-6 pl-6 pr-3">
+              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Office</p>
+              <div className="mt-3 break-all text-sm font-semibold text-slate-900">Lagos, Nigeria</div>
             </div>
           </div>
 
@@ -38,11 +38,11 @@ export default function BrandingReqPagee() {
             </div>
 
             <div className="relative my-3 flex items-center">
-              <div className="flex-grow border-t border-white/10" />
+              <div className="flex-1 border-t border-slate-200" />
               <span className="mx-4 rounded-full bg-white/5 px-4 py-1 text-sm text-slate-300">
                 OR
               </span>
-              <div className="flex-grow border-t border-white/10" />
+              <div className="flex-1 border-t border-slate-200" />
             </div>
 
             <div className="flex flex-col items-start gap-4">

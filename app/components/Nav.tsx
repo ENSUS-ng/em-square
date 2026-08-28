@@ -63,8 +63,8 @@ export function Nav() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xs">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 pl-0 pr-2 py-4 text-sm text-slate-200">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xs">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 pl-0 pr-2 py-4 text-sm text-slate-700">
         <Link
           href="/"
           className="font-semibold text-white w-40 h-12"
@@ -84,7 +84,7 @@ export function Nav() {
               key={item.id}
               href={`#${item.id}`}
               className={`transition-colors ${
-                active === item.id ? "text-brand-purple" : "text-slate-300 hover:text-white"
+                active === item.id ? "text-brand-purple" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {item.label}
@@ -93,8 +93,6 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-4">
-        
-
           <Show when="signed-in">
             <UserButton />
             <Link
@@ -106,8 +104,8 @@ export function Nav() {
                 className="text-white"
               />
             </Link>
-          </Show> 
-           <Link
+          </Show>
+          <Link
             href="/branding-request"
             className="text-sm rounded-2xl btn-gradient px-3 py-2.5  font-semibold text-white shadow-[0_16px_40px_-22px_rgba(255,168,15,0.7)] transition hover:brightness-110"
           >

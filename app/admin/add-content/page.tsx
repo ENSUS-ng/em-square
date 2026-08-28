@@ -56,7 +56,7 @@ export default function AddContentPage() {
         <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
           <h1 className="mt-4 text-3xl font-semibold">Sign in to continue</h1>
-          <p className="mt-3 text-sm leading-7 text-slate-300">
+          <p className="mt-3 text-sm leading-7 text-slate-500">
             You must be signed in to access the admin area.
           </p>
           {/* 
@@ -104,8 +104,10 @@ export default function AddContentPage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Add content</p>
-              <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">Choose what to create</h1>
-              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
+              <h1 className="mt-2 text-gray-700 text-3xl font-semibold sm:text-4xl">
+                Choose what to create
+              </h1>
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-500 sm:text-base">
                 Pick a content type below to open its create form. Launch requests are handled
                 separately by your client flow.
               </p>
@@ -146,7 +148,7 @@ export default function AddContentPage() {
 
               <Link
                 href="/admin"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-full border border-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100"
               >
                 Back to dashboard
               </Link>
@@ -164,14 +166,14 @@ export default function AddContentPage() {
                     href={`/admin/add-content?create-mode=${card.id}`}
                     className={`rounded-3xl border p-5 text-left transition ${
                       isActive
-                        ? "border-brand-purple/60 bg-brand-purple/15 shadow-[0_20px_60px_-30px_rgba(124,15,255,0.55)]"
+                        ? "border-violet-400/80 bg-violet-500/20 shadow-[0_20px_60px_-30px_rgba(139,92,246,0.8)]"
                         : "border-white/10 bg-white/5 hover:bg-white/10"
                     }`}
                   >
-                    <div className="text-sm uppercase tracking-[0.24em] text-brand-gold">
+                    <div className="text-sm uppercase tracking-[0.24em] text-amber-700">
                       {card.title}
                     </div>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{card.description}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-500">{card.description}</p>
                   </Link>
                 )
               })}

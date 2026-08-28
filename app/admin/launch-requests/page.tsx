@@ -24,38 +24,32 @@ const LaunchRequests = () => {
   }, [])
 
   const mailTo = (email: string) => {
-    window.open(`mailto:${email}`, '_self')
+    window.open(`mailto:${email}`, "_self")
   }
 
   return (
     <section className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(124,10,255,0.24),transparent_64%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] px-4 py-16 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="rounded-[2.5rem] border border-white/10 bg-white/6 p-8 shadow-[0_40px_120px_-80px_rgba(0,0,0,0.7)] backdrop-blur-xl sm:p-10">
+        <div className="rounded-[2.5rem] border border-white/10 bg-white/90 p-8 shadow-[0_40px_120px_-80px_rgba(0,0,0,0.7)] backdrop-blur-xl sm:p-10">
           <div className="flex flex-col gap-3">
-            <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">
-              Admin Dashboard
-            </p>
+            <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin Dashboard</p>
 
-            <h1 className="text-4xl font-semibold text-white">
-              Branding Requests
-            </h1>
+            <h1 className="text-4xl font-semibold text-white">Branding Requests</h1>
 
-            <p className="max-w-2xl text-base leading-7 text-slate-300">
-              Review enquiries submitted through your website contact form and
-              follow up with prospective clients.
+            <p className="max-w-2xl text-base leading-7 text-slate-500">
+              Review enquiries submitted through your website contact form and follow up with
+              prospective clients.
             </p>
           </div>
 
           <div className="mt-10">
             {loading ? (
               <div className="flex justify-center py-24">
-                <div className="h-10 w-10 animate-spin rounded-full border-4 border-brand-purple border-t-transparent" />
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-violet-400 border-t-transparent" />
               </div>
             ) : requests.length === 0 ? (
               <div className="rounded-3xl border border-dashed border-white/10 py-20 text-center">
-                <h3 className="text-xl font-semibold text-white">
-                  No branding requests yet
-                </h3>
+                <h3 className="text-xl font-semibold text-white">No branding requests yet</h3>
 
                 <p className="mt-3 text-slate-400">
                   New enquiries from your website will appear here.
@@ -66,10 +60,10 @@ const LaunchRequests = () => {
                 {requests.map((request) => (
                   <div
                     key={request._id}
-                    className="rounded-3xl border border-white/10 bg-slate-950/40 p-6 transition hover:border-brand-purple/30"
+                    className="rounded-3xl border border-white/10 bg-slate-200/40 p-6 transition hover:border-brand-purple/30"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="inline-flex items-center gap-2 rounded-full bg-brand-purple/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-brand-gold">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs uppercase tracking-[0.2em] text-amber-700">
                         <User size={14} />
                         {request.name}
                       </div>
@@ -84,23 +78,23 @@ const LaunchRequests = () => {
 
                     <div className="w-full mt-6 space-y-5">
                       <div
-                      onClick={() => mailTo(request.email)}
-                      className="w-full flex items-center gap-3 text-slate-300">
+                        onClick={() => mailTo(request.email)}
+                        className="w-full flex items-center gap-3 text-slate-300"
+                      >
                         <Mail
                           size={18}
                           className="text-brand-purple shrink-0"
                         />
 
                         <span className="break-all">{request.email}</span>
-                        <Reply size={20} className="cursor-pointer text-brand-purple ml-auto self-end stroke-3 shrink-0" />
+                        <Reply
+                          size={20}
+                          className="cursor-pointer text-brand-purple ml-auto self-end stroke-3 shrink-0"
+                        />
                       </div>
 
-              
-
                       <div>
-                        <p className="mb-2 font-medium text-brand-gold">
-                          Message
-                        </p>
+                        <p className="mb-2 font-medium text-amber-700">Message</p>
 
                         <div className="rounded-2xl bg-white/5 p-4 leading-7 text-slate-300">
                           {request.message}

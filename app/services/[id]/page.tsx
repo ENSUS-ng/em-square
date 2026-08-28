@@ -12,11 +12,11 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
 
   const isMedia = service.type === "media"
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(120,166,163,0.18),transparent_30%),#101820] px-4 py-8 text-white sm:px-8 lg:px-16">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(120,166,163,0.18),transparent_30%),#ffffff] px-4 py-8 text-slate-800 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/#what-we-do"
-          className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 transition hover:text-gray-900"
         >
           <ArrowLeft size={16} /> Back to services
         </Link>
@@ -32,7 +32,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
             >
               {service.type}
             </p>
-            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.02] sm:text-7xl">
+            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.02] text-slate-900 sm:text-7xl">
               {service.heading}
             </h1>
           </div>
@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
         <section className="grid gap-6 py-16 md:grid-cols-[0.35fr_0.65fr]">
           <p className="text-sm uppercase tracking-[0.28em] text-slate-500">The full brief</p>
           <div>
-            <div className="whitespace-pre-wrap text-lg leading-9 text-slate-200">
+            <div className="whitespace-pre-wrap text-lg leading-9 text-slate-700">
               {service.content}
             </div>
           </div>

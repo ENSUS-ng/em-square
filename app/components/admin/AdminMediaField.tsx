@@ -53,7 +53,7 @@ useEffect(() => {
           type="file"
           accept={accept}
           onChange={handleFileChange}
-          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-sm text-white file:mr-3 file:rounded-full file:border-0 file:bg-brand-purple/20 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-brand-gold"
+          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-sm text-white file:mr-3 file:rounded-full file:border-0 file:bg-brand-purple/80 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-white"
         />
       </label>
 

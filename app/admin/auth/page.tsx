@@ -18,12 +18,12 @@ export default function AdminAuthPage() {
       <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
         <h1 className="mt-4 text-3xl font-semibold">Sign in or create an account</h1>
-        <p className="mt-3 text-sm leading-7 text-slate-300">
+        <p className="mt-3 text-sm leading-7 text-slate-500">
           Sign back in as an admin or sign up as a new admin
         </p>
 
         {isPermissionGranted === "false" ? (
-          <p className="mt-4 text-sm text-rose-300">This invite link has not been validated yet.</p>
+          <p className="mt-4 text-sm text-rose-700">This invite link has not been validated yet.</p>
         ) : null}
 
         {isPermissionGranted !== "false" && (
@@ -36,9 +36,9 @@ export default function AdminAuthPage() {
                 Sign in
               </button>
             </SignInButton>
-            <SignUpButton   
+            <SignUpButton
               mode="redirect"
-              forceRedirectUrl='/admin'
+              forceRedirectUrl="/admin"
             >
               <button className="cursor-pointer w-40 rounded-full border border-white/10 px-4 py-3 text-sm font-semibold text-white">
                 Sign up

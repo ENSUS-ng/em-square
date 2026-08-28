@@ -9,7 +9,7 @@ const dashboardCards = [
     title: "Add Content",
     description: "Create services, brands, and team profiles for the site.",
     href: "/admin/add-content",
-    accent: "from-brand-purple via-violet-600 to-brand-gold",
+    accent: "from-violet-500 via-fuchsia-500 to-amber-400",
   },
   {
     title: "Delete Content",
@@ -21,7 +21,7 @@ const dashboardCards = [
     title: "Branding requests",
     description: "View and attend to all branding requests received from clients.",
     href: "/admin/launch-requests",
-    accent: "from-brand-gold via-amber-500 to-brand-purple",
+    accent: "from-amber-400 via-orange-400 to-violet-500",
   },
 ]
 
@@ -34,7 +34,7 @@ export default function AdminDashboardPage() {
         <div className="w-full max-w-md rounded-4xl border border-white/10 bg-white/8 p-8 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)] backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Admin access</p>
           <h1 className="mt-4 text-3xl font-semibold">Sign in to continue</h1>
-          <p className="mt-3 text-sm leading-7 text-slate-300">
+          <p className="mt-3 text-sm leading-7 text-slate-500">
             This area is reserved for the site administrator. Sign in or create an account to
             continue.
           </p>
@@ -59,16 +59,16 @@ export default function AdminDashboardPage() {
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">
                 Admin dashboard
               </p>
-              <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">
+               <h1 className="mt-2 text-gray-700 text-3xl font-semibold sm:text-4xl">
                 Manage your digital presence
               </h1>
-              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-500 sm:text-base">
                 Use the tools below to create and update the content that powers the site.
               </p>
             </div>
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-full border border-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100"
             >
               Back to site
             </Link>
@@ -81,13 +81,13 @@ export default function AdminDashboardPage() {
                 href={card.href}
                 className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br ${card.accent} p-px`}
               >
-                <div className="h-full rounded-[1.7rem] bg-[#120d22] p-6 transition group-hover:scale-[1.01]">
-                  <div className="inline-flex rounded-full border border-brand-gold/40 bg-brand-gold/15 px-3 py-1 text-xs uppercase tracking-[0.24em] text-brand-gold shadow-[0_8px_24px_-12px_rgba(233,166,111,0.8)]">
+                <div className="h-full rounded-[1.7rem] bg-white p-6 transition group-hover:scale-[1.01]">
+                  <div className="inline-flex rounded-full border border-amber-600/40 bg-amber-100 px-3 py-1 text-xs uppercase tracking-[0.24em] text-amber-700 shadow-[0_8px_24px_-12px_rgba(180,83,9,0.45)]">
                     Admin action
                   </div>
-                  <h2 className="mt-5 text-2xl font-semibold text-white">{card.title}</h2>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{card.description}</p>
-                  <div className="mt-6 inline-flex items-center text-sm font-medium text-brand-gold">
+                  <h2 className="mt-5 text-2xl font-semibold text-slate-900">{card.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-slate-500">{card.description}</p>
+                  <div className="mt-6 inline-flex items-center text-sm font-medium text-amber-700">
                     Open section
                     <span className="ml-2 transition group-hover:translate-x-1">→</span>
                   </div>

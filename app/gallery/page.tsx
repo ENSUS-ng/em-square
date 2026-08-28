@@ -9,17 +9,17 @@ export default async function GalleryPage() {
   const sections = await GallerySection.find().sort({ createdAt: -1 }).lean()
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_right,rgba(233,166,111,0.14),transparent_26%),#101820] px-4 py-8 text-white sm:px-8 lg:px-16">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top_right,rgba(233,166,111,0.14),transparent_26%),#ffffff] px-4 py-8 text-slate-800 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 transition hover:text-gray-900"
         >
           <ArrowLeft size={16} /> Back home
         </Link>
         <header className="mt-20 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.28em] text-brand-gold">Selected work</p>
-          <h1 className="mt-5 text-5xl font-semibold leading-[1.02] sm:text-7xl">
+          <h1 className="mt-5 text-5xl font-semibold leading-[1.02] text-slate-900 sm:text-7xl">
             Moments made to be remembered.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300">
@@ -41,7 +41,7 @@ export default async function GalleryPage() {
                 {section.images.map((image, index) => (
                   <div
                     key={`${image}-${index}`}
-                    className={`relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 ${index % 5 === 0 ? "sm:col-span-2 lg:row-span-2" : ""}`}
+                    className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 ${index % 5 === 0 ? "sm:col-span-2 lg:row-span-2" : ""}`}
                   >
                     <Image
                       src={image}

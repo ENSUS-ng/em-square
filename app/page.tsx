@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div
       id="home"
-      className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(120,166,163,0.16),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,166,111,0.13),transparent_25%),#101820] text-white"
+      className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(120,166,163,0.16),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,166,111,0.13),transparent_25%),#ffffff] text-slate-800"
     >
       <Nav />
 
@@ -45,7 +45,7 @@ export default function Home() {
             />
 
             {/* Image overlay */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/10 to-[#101820]/60" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/10 to-white/70" />
           </div>
 
           {/* Main Content */}
@@ -57,7 +57,7 @@ export default function Home() {
               w-[calc(100%-1rem)]
               rounded-4xl
               border border-white/10
-              bg-[#17132a]/90
+              bg-white/95
               px-5 py-8
               shadow-[0_40px_120px_-60px_rgba(0,0,0,0.8)]
               backdrop-blur-xl
@@ -83,7 +83,7 @@ export default function Home() {
                   font-semibold
                   leading-[1.05]
                   tracking-tight
-                  text-white
+                  text-slate-900
                   sm:text-5xl
                   md:text-6xl
                   lg:max-w-5xl
@@ -99,7 +99,7 @@ export default function Home() {
                   max-w-3xl
                   text-base
                   leading-7
-                  text-slate-300
+                  text-slate-500
                   sm:mx-0
                   sm:mt-6
                   sm:text-lg
@@ -158,7 +158,7 @@ export default function Home() {
                   text-center
                   text-sm
                   leading-7
-                  text-slate-300
+                  text-slate-500
                   sm:text-left
                 "
               >

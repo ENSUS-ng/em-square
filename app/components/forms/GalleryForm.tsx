@@ -74,8 +74,8 @@ export function GalleryForm() {
         rows={3}
         className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-brand-purple"
       />
-      <label className="rounded-xl border border-dashed border-white/20 bg-black/20 px-4 py-5 text-sm text-slate-300">
-        {uploading ? "Uploading..." : "Add images from your gallery"}
+      <label className="rounded-xl border border-dashed border-white/80 bg-black/10 cursor-pointer px-4 py-5 text-sm text-slate-300">
+        {uploading ? "Uploading..." : "Click to upload images from your gallery"}
         <input
           multiple
           type="file"

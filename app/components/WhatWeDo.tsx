@@ -44,17 +44,17 @@ export function WhatWeDo() {
       <div className="space-y-14">
         <div className="mx-auto max-w-5xl space-y-4 text-center lg:text-left">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">What we do</p>
-          <h2 className="text-4xl font-semibold text-white md:text-5xl">
+          <h2 className="text-4xl font-semibold text-slate-900 md:text-5xl">
             We move culture forward through media and marketing.
           </h2>
-          <p className="mx-auto max-w-xl text-lg leading-8 text-slate-300 lg:mx-0">
+          <p className="mx-auto max-w-xl text-lg leading-8 text-slate-500 lg:mx-0">
             Two connected practices, one modern motion: Ensus Media designs the narrative and Ensus
             Marketing turns it into growth.
           </p>
         </div>
         {!isLoading && (
           <div className="grid gap-8 lg:grid-cols-2 items-stretch">
-            <div className="rounded-4xl border border-brand-purple/30 bg-white/5 p-6">
+            <div className="rounded-4xl border border-brand-purple/30 bg-slate-50 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center h-11 w-11 rounded-full bg-brand-purple_15">
                   <Image
@@ -70,7 +70,7 @@ export function WhatWeDo() {
                   <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">
                     Ensus Media
                   </p>
-                  <p className="mt-1 text-2xl font-semibold text-white">Story-led production</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-900">Story-led production</p>
                 </div>
               </div>
               <div className="mt-6 space-y-4">
@@ -86,7 +86,7 @@ export function WhatWeDo() {
               </div>
             </div>
 
-            <div className="rounded-4xl border border-brand-gold/30 bg-white/5 p-6">
+            <div className="rounded-4xl border border-brand-gold/30 bg-slate-50 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center h-11 w-11 rounded-2xl bg-brand-purple_15">
                   <Image
@@ -101,7 +101,9 @@ export function WhatWeDo() {
                   <p className="text-sm uppercase tracking-[0.3em] text-brand-gold">
                     Ensus Marketing
                   </p>
-                  <p className="mt-1 text-2xl font-semibold text-white">Growth-driven campaigns</p>
+                  <p className="mt-1 text-2xl font-semibold text-slate-900">
+                    Growth-driven campaigns
+                  </p>
                 </div>
               </div>
               <div className="mt-6 space-y-4">
