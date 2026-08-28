@@ -9,6 +9,7 @@ import { BrandForm } from "@/app/components/forms/BrandForm"
 import { LaunchRequestForm } from "@/app/components/forms/LaunchRequestForm"
 import { ServiceForm } from "@/app/components/forms/ServiceForm"
 import { TeamForm } from "@/app/components/forms/TeamForm"
+import { GalleryForm } from "@/app/components/forms/GalleryForm"
 
 const contentCards = [
   {
@@ -18,6 +19,11 @@ const contentCards = [
   },
   { id: "brand", title: "Brand", description: "Add a partner or client brand logo and name." },
   { id: "team", title: "Team", description: "Add a team member with a picture, name, and role." },
+  {
+    id: "gallery",
+    title: "Gallery",
+    description: "Create a collection and add images from your work.",
+  },
 ]
 
 export default function AddContentPage() {
@@ -34,6 +40,8 @@ export default function AddContentPage() {
         return <TeamForm />
       case "launch-request":
         return <LaunchRequestForm />
+      case "gallery":
+        return <GalleryForm />
       case "service":
       default:
         return <ServiceForm />
@@ -51,7 +59,7 @@ export default function AddContentPage() {
           <p className="mt-3 text-sm leading-7 text-slate-300">
             You must be signed in to access the admin area.
           </p>
-{/* 
+          {/* 
           <div className="mt-8 flex gap-3">
             <SignInButton
               mode="redirect"
@@ -70,8 +78,6 @@ export default function AddContentPage() {
               </button>
             </SignUpButton>
           </div> */}
-
-
         </div>
       </div>
     )

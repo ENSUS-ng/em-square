@@ -82,7 +82,7 @@ export default function AdminDashboardPage() {
                 className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br ${card.accent} p-px`}
               >
                 <div className="h-full rounded-[1.7rem] bg-[#120d22] p-6 transition group-hover:scale-[1.01]">
-                  <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-300">
+                  <div className="inline-flex rounded-full border border-brand-gold/40 bg-brand-gold/15 px-3 py-1 text-xs uppercase tracking-[0.24em] text-brand-gold shadow-[0_8px_24px_-12px_rgba(233,166,111,0.8)]">
                     Admin action
                   </div>
                   <h2 className="mt-5 text-2xl font-semibold text-white">{card.title}</h2>

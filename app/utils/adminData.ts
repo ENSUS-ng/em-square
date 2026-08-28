@@ -19,6 +19,14 @@ export type ServiceItem = {
   createdAt?: string
 }
 
+export type GallerySection = {
+  _id: string
+  title: string
+  description: string
+  images: string[]
+  createdAt?: string
+}
+
 export type BrandItem = {
   _id: string
   logo: string
@@ -65,6 +73,14 @@ async function get<T>(url: string, params?: Record<string, unknown>) {
 
 export function fetchServices(type: ServiceType) {
   return get<ServiceItem[]>("/api/services", { type })
+}
+
+export function fetchAllServices() {
+  return get<ServiceItem[]>("/api/services")
+}
+
+export function fetchGallery() {
+  return get<GallerySection[]>("/api/gallery")
 }
 
 export function fetchBrands() {

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Megaphone, Clapperboard } from "lucide-react"
+import { Megaphone, Clapperboard, ArrowUpRight } from "lucide-react"
 
 type ServiceCardProps = {
   title: string
@@ -17,20 +17,32 @@ export function ServiceCard({ title, description, accent, link }: ServiceCardPro
       : "hover:shadow-[0_24px_90px_-60px_rgba(255,168,15,0.35)]"
 
   return (
-    <article
-      className={`group rounded-3xl ${border} bg-white/5 px-6 py-7 transition duration-300 hover:-translate-y-0.5 ${hoverShadow}`}
+    <Link
+      href={`/services/${link}`}
+      className={`group block rounded-3xl ${border} bg-white/5 px-6 py-7 transition duration-300 hover:-translate-y-1 hover:bg-white/10 ${hoverShadow}`}
     >
-         <span
-        // href={link || ''}
-        className={accentText}>
-          {accent === "purple" ? <Clapperboard size={34} className="stroke-2" /> : <Megaphone size={34} className="stroke-2" />}
-          </span>
+      <span className={accentText}>
+        {accent === "purple" ? (
+          <Clapperboard
+            size={34}
+            className="stroke-2"
+          />
+        ) : (
+          <Megaphone
+            size={34}
+            className="stroke-2"
+          />
+        )}
+      </span>
       <h3 className="mt-3 text-xl font-semibold text-white">{title}</h3>
       <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
-      <div className="mt-6 flex items-center gap-2 text-sm font-semibold transition-colors duration-300 hover:text-white">
-      
-        {/* <span className={`${accentText} text-base`}>&rarr;</span> */}
+      <div className={`mt-6 flex items-center justify-between text-sm font-semibold ${accentText}`}>
+        <span>Explore service</span>
+        <ArrowUpRight
+          size={19}
+          className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        />
       </div>
-    </article>
+    </Link>
   )
 }

@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-   color-scheme: light;
-  --background: #110c1f;
-  --foreground: #f4f4f5;
-  --brand-purple: #8b34f4;
-  --brand-gold: #ffa80fff;
+  color-scheme: dark;
+  --background: #101820;
+  --foreground: #f5f2ec;
+  --brand-purple: #78a6a3;
+  --brand-gold: #e9a66f;
 }
 
 @theme inline {
@@ -13,16 +13,16 @@
   --color-foreground: var(--foreground);
   --color-brand-purple: var(--brand-purple);
   --color-brand-gold: var(--brand-gold);
-  --font-sans: var(--font-questrial);
+  --font-sans: var(--font-poppins);
   /* --font-mono: var(--font-geist-mono); */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #110c1f;
-    --foreground: #f4f4f5;
-     --color-brand-purple: var(--brand-purple);
-  --color-brand-gold: var(--brand-gold);
+    --background: #101820;
+    --foreground: #f5f2ec;
+    --color-brand-purple: var(--brand-purple);
+    --color-brand-gold: var(--brand-gold);
   }
 }
 
@@ -31,18 +31,18 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans),sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 
 .btn-gradient {
-  background-image: linear-gradient(90deg, var(--brand-purple), #a23cff, var(--brand-gold));
+  background-image: linear-gradient(110deg, #4f7f7a, #d48660);
 }
 .btn-gradient-left {
-  background-image: linear-gradient(90deg, var(--brand-gold), #a23cff, var(--brand-purple));
+  background-image: linear-gradient(110deg, #d48660, #4f7f7a);
 }
 
 .btn-gold-gradient {
-  background-image: linear-gradient(90deg, #ffa80f, #ffd66f);
+  background-image: linear-gradient(90deg, #d48660, #f0c49a);
 }
 
 .text-brand-purple {
@@ -58,11 +58,11 @@ body {
 }
 
 .bg-brand-purple_15 {
-  background-color: rgba(124, 15, 255, 0.15);
+  background-color: rgba(120, 166, 163, 0.15);
 }
 
 .bg-brand-gold_15 {
-  background-color: rgba(255, 168, 15, 0.15);
+  background-color: rgba(233, 166, 111, 0.15);
 }
 
 .scrollbar-none {
@@ -84,10 +84,21 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
-button:active, a:active {
-    transition: transform 0.2s ease;
- transform:scale(0.96);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+button:active,
+a:active {
+  transition: transform 0.2s ease;
+  transform: scale(0.96);
 }

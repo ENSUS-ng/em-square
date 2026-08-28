@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import { useScrollReveal } from "@/app/hooks/useScrollReveal"
 import { fetchBrands, fetchTeam } from "../utils/adminData"
 import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight, Images } from "lucide-react"
 
 function TeamsSection({ teams }: { teams: any[] }) {
   const { ref: teamRef, revealed: teamRevealed } = useScrollReveal()
@@ -86,28 +88,42 @@ export function BrandsTeam() {
       <div className="flex flex-col gap-20">
         {/* Brands */}
         <div className="flex flex-col gap-10">
-          <div className="mx-auto max-w-5xl space-y-3 text-center lg:text-left">
-            <p className="text-sm uppercase tracking-[0.3em] text-brand-gold">
-              Brands we work with
-            </p>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-5xl space-y-3 text-center lg:text-left">
+              <p className="text-sm uppercase tracking-[0.3em] text-brand-gold">
+                Brands we work with
+              </p>
 
-            <h2 className="text-4xl font-semibold text-white md:text-5xl">
-              We're trusted by ambitious brands to create compelling media and marketing
-              experiences.
-            </h2>
+              <h2 className="text-4xl font-semibold text-white md:text-5xl">
+                We're trusted by ambitious brands to create compelling media and marketing
+                experiences.
+              </h2>
 
-            <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-300 lg:mx-0">
-              A showcase of brands we have partnered with.
-            </p>
+              <p className="mx-auto max-w-5xl text-lg leading-8 text-slate-300 lg:mx-0">
+                A showcase of brands we have partnered with.
+              </p>
+            </div>
+
+            <Link
+              href="/gallery"
+              className="group inline-flex shrink-0 items-center justify-center gap-3 self-center rounded-2xl border border-brand-gold/50 bg-brand-gold/10 px-5 py-3.5 text-sm font-semibold text-brand-gold transition duration-300 hover:-translate-y-1 hover:opacity-90 hover:text-[#101820] lg:self-end"
+            >
+              <Images size={18} />
+              <span>View our gallery</span>
+              <ArrowUpRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </Link>
           </div>
 
           {!isLoading && (
             <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/5 px-4 py-5">
-              <div className="flex min-h-[96px] w-[220%] items-center gap-6 whitespace-nowrap animate-marquee">
+              <div className="flex min-h-24 w-[220%] items-center gap-6 whitespace-nowrap animate-marquee">
                 {brands.map((brand: any) => (
                   <div
                     key={brand._id}
-                    className="inline-flex min-w-[220px] items-center gap-10 rounded-3xl border border-white/10 bg-slate-950/30 px-5 py-4 text-sm text-slate-200"
+                    className="inline-flex min-w-55 items-center gap-10 rounded-3xl border border-white/10 bg-slate-950/30 px-5 py-4 text-sm text-slate-200"
                   >
                     <Image
                       src={brand.logo}

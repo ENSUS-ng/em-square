@@ -5,13 +5,20 @@ import { useEffect, useState } from "react"
 
 import {
   deleteBrand,
+  deleteGallerySection,
   deleteLaunchRequest,
   deleteService,
   deleteTeamMember,
 } from "@/app/utils/deleteContent"
-import { fetchBrands, fetchLaunchRequests, fetchServices, fetchTeam } from "@/app/utils/adminData"
+import {
+  fetchBrands,
+  fetchGallery,
+  fetchLaunchRequests,
+  fetchServices,
+  fetchTeam,
+} from "@/app/utils/adminData"
 import { useAdmin } from "@/app/hooks/AdminContext"
-type ContentKind = "service" | "brand" | "team" | "launch" | "request"
+type ContentKind = "service" | "brand" | "team" | "launch" | "request" | "gallery"
 
 type SectionState = {
   loading: boolean
@@ -26,7 +33,9 @@ export default function DeleteContentPage() {
   const [brands, setBrands] = useState<SectionState>(initialSectionState)
   const [team, setTeam] = useState<SectionState>(initialSectionState)
   const [launchRequests, setLaunchRequests] = useState<SectionState>(initialSectionState)
+  const [gallery, setGallery] = useState<SectionState>(initialSectionState)
   const [deletingId, setDeletingId] = useState<string | null>(null)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
   const [activeKind, setActiveKind] = useState<ContentKind>("service")
   const { isAuthenticated } = useAdmin()
 
@@ -36,24 +45,27 @@ export default function DeleteContentPage() {
 
   const loadAll = async () => {
     try {
-      const [servicesData, brandsData, teamData, launchData] = await Promise.all([
+      const [servicesData, brandsData, teamData, launchData, galleryData] = await Promise.all([
         // @ts-ignore
         fetchServices(),
         fetchBrands(),
         fetchTeam(),
         fetchLaunchRequests(),
+        fetchGallery(),
       ])
 
       setServices({ loading: false, error: null, items: servicesData })
       setBrands({ loading: false, error: null, items: brandsData })
       setTeam({ loading: false, error: null, items: teamData })
       setLaunchRequests({ loading: false, error: null, items: launchData })
+      setGallery({ loading: false, error: null, items: galleryData })
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to load content"
       setServices((state) => ({ ...state, loading: false, error: message }))
       setBrands((state) => ({ ...state, loading: false, error: message }))
       setTeam((state) => ({ ...state, loading: false, error: message }))
       setLaunchRequests((state) => ({ ...state, loading: false, error: message }))
+      setGallery((state) => ({ ...state, loading: false, error: message }))
     }
   }
 
@@ -61,27 +73,32 @@ export default function DeleteContentPage() {
     if (!window.confirm("Delete this item?")) return
 
     setDeletingId(id)
+    setDeleteError(null)
+
+    const removeFromState = (setState: React.Dispatch<React.SetStateAction<SectionState>>) => {
+      setState((state) => ({ ...state, items: state.items.filter((item) => item._id !== id) }))
+    }
 
     try {
       if (kind === "service") {
+        removeFromState(setServices)
         await deleteService(id)
-        setServices((state) => ({ ...state, items: state.items.filter((item) => item._id !== id) }))
       } else if (kind === "brand") {
+        removeFromState(setBrands)
         await deleteBrand(id)
-        setBrands((state) => ({ ...state, items: state.items.filter((item) => item._id !== id) }))
       } else if (kind === "team") {
+        removeFromState(setTeam)
         await deleteTeamMember(id)
-        setTeam((state) => ({ ...state, items: state.items.filter((item) => item._id !== id) }))
+      } else if (kind === "gallery") {
+        removeFromState(setGallery)
+        await deleteGallerySection(id)
       } else {
+        removeFromState(setLaunchRequests)
         await deleteLaunchRequest(id)
-        setLaunchRequests((state) => ({
-          ...state,
-          items: state.items.filter((item) => item._id !== id),
-        }))
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to delete item"
-      return message
+      setDeleteError(message)
     } finally {
       setDeletingId(null)
     }
@@ -91,6 +108,7 @@ export default function DeleteContentPage() {
     { id: "service", label: "Services" },
     { id: "brand", label: "Brands" },
     { id: "team", label: "Team" },
+    { id: "gallery", label: "Gallery" },
     { id: "request", label: "Branding Requests" },
   ]
 
@@ -101,9 +119,11 @@ export default function DeleteContentPage() {
         ? brands
         : activeKind === "team"
           ? team
-          : activeKind === "request"
-            ? launchRequests
-            : ([] as any)
+          : activeKind === "gallery"
+            ? gallery
+            : activeKind === "request"
+              ? launchRequests
+              : ([] as any)
 
   const replyEmail = async (email: string) => {
     window.open(`mailto:${email}`)
@@ -130,6 +150,14 @@ export default function DeleteContentPage() {
               Back to dashboard
             </Link>
           </div>
+          {deleteError && (
+            <div
+              role="alert"
+              className="mt-6 rounded-2xl border border-rose-400/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200"
+            >
+              {deleteError}
+            </div>
+          )}
 
           <div className="mt-8 flex flex-wrap gap-3">
             {tabs.map((tab) => {
@@ -149,7 +177,7 @@ export default function DeleteContentPage() {
               )
             })}
           </div>
- {/* Content list */}
+          {/* Content list */}
           <div className="mt-8 space-y-3">
             {activeSection.loading ? (
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
@@ -172,7 +200,9 @@ export default function DeleteContentPage() {
                       ? (item.brandName as string)
                       : activeKind === "team"
                         ? (item.name as string)
-                        : `${item.name as string}`
+                        : activeKind === "gallery"
+                          ? (item.title as string)
+                          : `${item.name as string}`
 
                 return (
                   <div
@@ -180,11 +210,14 @@ export default function DeleteContentPage() {
                     className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div>
-                      {activeKind === 'service' &&
-                       <span className={`capitalize text-xs font-medium rounded-xl px-8 py-1  text-gray-200
-                       ${item.type === 'media' ? 'bg-brand-purple/40' : 'bg-brand-gold/60'}`}>
-                        {item.type}
-                        </span>}
+                      {activeKind === "service" && (
+                        <span
+                          className={`capitalize text-xs font-medium rounded-xl px-8 py-1  text-gray-200
+                       ${item.type === "media" ? "bg-brand-purple/40" : "bg-brand-gold/60"}`}
+                        >
+                          {item.type}
+                        </span>
+                      )}
                       <p className="text-base font-semibold text-white mt-2">{title}</p>
                       <p className="mt-1 text-sm text-slate-400">
                         {activeKind === "service"
@@ -193,8 +226,9 @@ export default function DeleteContentPage() {
                             ? (item.logo as string)
                             : activeKind === "team"
                               ? (item.role as string)
-                              : (item.email as string)}
-                              
+                              : activeKind === "gallery"
+                                ? `${(item.images as string[]).length} images`
+                                : (item.email as string)}
                       </p>
                     </div>
                     {activeKind === "request" && (

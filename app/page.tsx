@@ -1,9 +1,10 @@
-'use client'
+"use client"
 import { Nav } from "@/app/components/Nav"
 import { BrandsTeam } from "@/app/components/BrandsTeam"
 import { WhatWeDo } from "@/app/components/WhatWeDo"
 import { aboutText } from "@/app/data/demoArrays"
-import { Mail } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { Footer } from "@/app/components/Footer"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -11,7 +12,7 @@ export default function Home() {
   return (
     <div
       id="home"
-      className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(124,15,255,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,168,15,0.16),transparent_24%),#0e0b1d] text-white"
+      className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(120,166,163,0.16),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,166,111,0.13),transparent_25%),#101820] text-white"
     >
       <Nav />
 
@@ -26,7 +27,7 @@ export default function Home() {
               h-90
               w-full
               overflow-hidden
-              rounded-[2rem]
+              rounded-4xl
               sm:h-101
               sm:rounded-[2.5rem]
               md:h-102.5
@@ -44,7 +45,7 @@ export default function Home() {
             />
 
             {/* Image overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/10 to-[#0e0b1d]/60" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/5 via-black/10 to-[#101820]/60" />
           </div>
 
           {/* Main Content */}
@@ -54,7 +55,7 @@ export default function Home() {
               mx-auto
               -mt-12
               w-[calc(100%-1rem)]
-              rounded-[2rem]
+              rounded-4xl
               border border-white/10
               bg-[#17132a]/90
               px-5 py-8
@@ -139,15 +140,15 @@ export default function Home() {
                   font-semibold
                   text-white
                   transition
-                  hover:brightness-110
+                  shadow-[0_18px_40px_-20px_rgba(233,166,111,0.7)] hover:-translate-y-0.5 hover:brightness-110
                   sm:w-auto
                 "
               >
                 <span>Start Your Branding Journey</span>
 
-                <Mail
+                <ArrowUpRight
                   size={22}
-                  className="stroke-3 text-white"
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                 />
               </Link>
 
@@ -161,8 +162,8 @@ export default function Home() {
                   sm:text-left
                 "
               >
-                Start with a quick introduction and we&apos;ll help shape the
-                next phase of your brand journey.
+                Start with a quick introduction and we&apos;ll help shape the next phase of your
+                brand journey.
               </p>
             </div>
           </div>
@@ -172,6 +173,7 @@ export default function Home() {
         <WhatWeDo />
         <BrandsTeam />
       </main>
+      <Footer />
     </div>
   )
 }
