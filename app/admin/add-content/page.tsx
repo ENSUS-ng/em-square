@@ -146,12 +146,20 @@ export default function AddContentPage() {
                 </div>
               ) : null}
 
-              <Link
-                href="/admin"
-                className="inline-flex items-center justify-center rounded-full border border-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100"
-              >
-                Back to dashboard
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/"
+                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-white/10"
+                >
+                  Go back home
+                </Link>
+                <Link
+                  href="/admin"
+                  className="inline-flex items-center justify-center rounded-full border border-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100"
+                >
+                  Back to dashboard
+                </Link>
+              </div>
             </div>
           </div>
 

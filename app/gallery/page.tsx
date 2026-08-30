@@ -5,15 +5,12 @@ import { ArrowLeft } from "lucide-react"
 import GallerySection from "@/app/models/gallery"
 import { connectToDB } from "@/app/utils/database"
 
-export const dynamic = "force-dynamic"
-export const revalidate = 0
-
 export default async function GalleryPage() {
   await connectToDB()
   const sections = await GallerySection.find().sort({ createdAt: -1 }).lean()
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_right,rgba(233,166,111,0.14),transparent_26%),#ffffff] px-4 py-8 text-slate-800 sm:px-8 lg:px-16">
+    <main className="min-h-screen  bg-[radial-gradient(circle_at_top_right,rgba(233,166,111,0.14),transparent_26%),#ffffff] px-4 py-8 text-slate-800 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/"
