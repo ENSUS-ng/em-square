@@ -6,7 +6,9 @@ export default function BrandingReqPagee() {
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(120,166,163,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(233,166,111,0.13),transparent_28%),#ffffff] text-slate-800">
       <main className="mx-auto flex min-h-screen  max-w-5xl flex-col justify-center px-4 py-12">
         <div className="rounded-[2.5rem] border border-slate-200 bg-white/90 p-10 px-6 shadow-[0_30px_90px_-60px_rgba(36,49,58,0.25)]">
-          <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">Make a branding request</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">
+            Make a branding request
+          </p>
           <h1 className="mt-4 text-5xl font-semibold text-slate-900 sm:text-6xl">
             Let&apos;s launch your next project.
           </h1>
@@ -16,15 +18,19 @@ export default function BrandingReqPagee() {
             your brand feel fresher, louder and more connected.
           </p>
 
-          <div className="w-full mx-auto mt-10 grid gap-6 md:grid-cols-2 items-center ">
-            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 p-6 pl-6 pr-3">
+          <div className="mx-auto mt-10 grid w-full items-center gap-6 md:grid-cols-2">
+            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 px-6 py-6">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Email</p>
-              <div className="mt-3 w-full break-all text-sm font-semibold text-slate-900">ensusmediandmarketing@gmail.com</div>
+              <div className="mt-3 w-full break-all text-sm font-semibold text-slate-900">
+                ensusmediandmarketing@gmail.com
+              </div>
             </div>
-            
-            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 p-6 pl-6 pr-3">
+
+            <div className="rounded-4xl min-w-50 max-w-full border border-slate-200 bg-slate-50 px-6 py-6">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Office</p>
-              <div className="mt-3 break-all text-sm font-semibold text-slate-900">Lagos, Nigeria</div>
+              <div className="mt-3 break-all text-sm font-semibold text-slate-900">
+                Lagos, Nigeria
+              </div>
             </div>
           </div>
 

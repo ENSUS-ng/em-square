@@ -137,31 +137,31 @@ function Editor({
 
   return (
     <div className="space-y-4">
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="text-xs text-slate-400">Title</span>
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="mt-1 rounded-md border border-white/10 bg-transparent px-3 py-2 text-white"
+          className="mt-1 w-full max-w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-white"
         />
       </label>
 
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="text-xs text-slate-400">Slug</span>
         <input
           value={slug}
           onChange={(e) => setSlug(e.target.value)}
-          className="mt-1 rounded-md border border-white/10 bg-transparent px-3 py-2 text-white"
+          className="mt-1 w-full max-w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-white"
         />
       </label>
 
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="text-xs text-slate-400">Content</span>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={8}
-          className="mt-1 rounded-md border border-white/10 bg-transparent px-3 py-2 text-white resize-none"
+          className="mt-1 w-full max-w-full resize-none rounded-md border border-white/10 bg-transparent px-3 py-2 text-white"
         />
       </label>
 

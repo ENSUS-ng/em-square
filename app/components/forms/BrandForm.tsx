@@ -27,7 +27,7 @@ export function BrandForm() {
       setLogo("")
       setBrandName("")
     } catch (error) {
-           setLogo("")
+      setLogo("")
       setBrandName("")
       setStatus({
         ok: false,
@@ -41,14 +41,14 @@ export function BrandForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6"
+      className="w-full max-w-full space-y-4 rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6"
     >
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="mb-1 text-sm text-slate-300">Brand name</span>
         <input
           value={brandName}
           onChange={(event) => setBrandName(event.target.value)}
-          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
+          className="w-full max-w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
           placeholder="Brand name"
         />
       </label>

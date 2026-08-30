@@ -38,7 +38,7 @@ export default async function GalleryPage() {
                 className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
                 style={{ gridAutoRows: "220px" }}
               >
-                {section.images.map((image, index) => (
+                {section.images.map((image:any, index:number) => (
                   <div
                     key={`${image}-${index}`}
                     className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 ${index % 5 === 0 ? "sm:col-span-2 lg:row-span-2" : ""}`}

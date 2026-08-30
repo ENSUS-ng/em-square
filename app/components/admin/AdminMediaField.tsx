@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useRef,useEffect } from "react"
+import { useRef, useEffect } from "react"
 
 import { useMediaUploader } from "@/app/hooks/useMediaUploader"
 
@@ -36,24 +36,24 @@ export function AdminMediaField({
       console.error(error)
     }
   }
-//   if value change make file to have chosen nothing
-useEffect(() => {
-  if (value !==previewUrl && inputRef.current) {
-    inputRef.current.value = ""
-    setPreviewUrl('')
-  }
-}, [value])
+  //   if value change make file to have chosen nothing
+  useEffect(() => {
+    if (value !== previewUrl && inputRef.current) {
+      inputRef.current.value = ""
+      setPreviewUrl("")
+    }
+  }, [value])
 
   return (
-    <div className="space-y-3">
-      <label className="flex flex-col">
+    <div className="w-full max-w-full space-y-3">
+      <label className="flex min-w-0 flex-col">
         <span className="mb-1 text-sm text-slate-300">{label}</span>
         <input
           ref={inputRef}
           type="file"
           accept={accept}
           onChange={handleFileChange}
-          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-sm text-white file:mr-3 file:rounded-full file:border-0 file:bg-brand-purple/80 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-white"
+          className="w-full max-w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-sm text-white file:mr-3 file:rounded-full file:border-0 file:bg-brand-purple/80 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-white"
         />
       </label>
 
@@ -69,11 +69,11 @@ useEffect(() => {
         </div>
       ) : null}
 
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex w-full max-w-full flex-wrap items-center gap-3">
         <input
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
+          className="w-full min-w-0 max-w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
           placeholder={placeholder}
         />
         {isUploading ? <span className="text-sm text-brand-gold">Uploading...</span> : null}

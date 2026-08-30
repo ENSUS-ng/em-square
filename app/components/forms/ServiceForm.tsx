@@ -46,24 +46,24 @@ export function ServiceForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6"
+      className="w-full max-w-full space-y-4 rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6"
     >
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="flex flex-col">
+        <label className="flex min-w-0 flex-col">
           <span className="mb-1 text-sm text-slate-300">Heading</span>
           <input
             value={heading}
             onChange={(event) => setHeading(event.target.value)}
-            className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
+            className="w-full max-w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
             placeholder="Service heading"
           />
         </label>
-        <label className="flex flex-col">
+        <label className="flex min-w-0 flex-col">
           <span className="mb-1 text-sm text-slate-300">Type</span>
           <select
             value={type}
             onChange={(event) => setType(event.target.value as "media" | "marketing")}
-            className="rounded-xl border border-white/10 bg-[#120d22] px-4 py-3 text-white outline-none"
+            className="w-full max-w-full rounded-xl border border-white/10 bg-[#120d22] px-4 py-3 text-white outline-none"
           >
             <option value="media">Media</option>
             <option value="marketing">Marketing</option>
@@ -71,23 +71,23 @@ export function ServiceForm() {
         </label>
       </div>
 
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="mb-1 text-sm text-slate-300">Short about</span>
         <input
           value={about}
           onChange={(event) => setAbout(event.target.value)}
-          className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
+          className="w-full max-w-full rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
           placeholder="Short summary"
         />
       </label>
 
-      <label className="flex flex-col">
+      <label className="flex min-w-0 flex-col">
         <span className="mb-1 text-sm text-slate-300">Expanded content</span>
         <textarea
           value={content}
           onChange={(event) => setContent(event.target.value)}
           rows={6}
-          className="resize-none rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
+          className="w-full max-w-full resize-none rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white outline-none"
           placeholder="Describe the brand experience and work this service covers"
         />
       </label>

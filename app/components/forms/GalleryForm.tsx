@@ -53,7 +53,7 @@ export function GalleryForm() {
   return (
     <form
       onSubmit={submit}
-      className="grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6"
+      className="grid w-full max-w-full gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6"
     >
       <div>
         <p className="text-sm uppercase tracking-[0.24em] text-brand-gold">Gallery section</p>
@@ -64,7 +64,7 @@ export function GalleryForm() {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         placeholder="Section title"
-        className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-brand-purple"
+        className="w-full max-w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-brand-purple"
       />
       <textarea
         required
@@ -72,16 +72,16 @@ export function GalleryForm() {
         onChange={(event) => setDescription(event.target.value)}
         placeholder="What happened here?"
         rows={3}
-        className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-brand-purple"
+        className="w-full max-w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-brand-purple"
       />
-      <label className="rounded-xl border border-dashed border-white/80 bg-black/10 cursor-pointer px-4 py-5 text-sm text-slate-300">
+      <label className="block w-full max-w-full cursor-pointer rounded-xl border border-dashed border-white/80 bg-black/10 px-4 py-5 text-sm text-slate-300">
         {uploading ? "Uploading..." : "Click to upload images from your gallery"}
         <input
           multiple
           type="file"
           accept="image/*"
           onChange={uploadImages}
-          className="mt-3 block w-full text-xs"
+          className="mt-3 block w-full max-w-full text-xs"
         />
       </label>
       {images.length > 0 && (

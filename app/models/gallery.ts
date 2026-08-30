@@ -17,7 +17,6 @@ const gallerySchema = new Schema<IGallerySection>(
   { timestamps: true },
 )
 
-const GallerySection =
-  models?.GallerySection || model<IGallerySection>("GallerySection", gallerySchema)
+const GallerySection = models?.GallerySection || model<IGallerySection>("GallerySection", gallerySchema)
 
 export default GallerySection
