@@ -1,5 +1,7 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
+
 import Brand from "@/app/models/brand"
 import LaunchRequest from "@/app/models/launchRequest"
 import Service from "@/app/models/service"
@@ -39,5 +41,7 @@ export async function deleteGallerySection(id: string) {
   await connectToDB()
   const deleted = await GallerySection.findByIdAndDelete(id)
   if (!deleted) throw new Error("Gallery section not found")
+
+  revalidatePath("/gallery")
   return { ok: true }
 }

@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 
 import GallerySection from "@/app/models/gallery"
@@ -35,6 +36,8 @@ export async function POST(request: Request) {
       description: body.description,
       images,
     })
+
+    revalidatePath("/gallery")
     return NextResponse.json({ success: true, data: section }, { status: 201 })
   } catch (error) {
     console.error("Failed to create gallery section", error)

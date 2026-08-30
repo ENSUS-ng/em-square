@@ -1,8 +1,10 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export function GalleryForm() {
+  const router = useRouter()
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [images, setImages] = useState<string[]>([])
@@ -48,6 +50,7 @@ export function GalleryForm() {
     setDescription("")
     setImages([])
     setStatus("Gallery section published.")
+    router.refresh()
   }
 
   return (
