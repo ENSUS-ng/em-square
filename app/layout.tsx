@@ -27,9 +27,70 @@ const poppinsSans = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "EM Square | Ensus Media and Marketing",
+  metadataBase: new URL("https://www.ensusmediaandmarketing.com"),
+  applicationName: "Ensus Media and Marketing",
+  title: {
+    default: "Ensus Media and Marketing | Creative Strategy, Branding & Growth",
+    template: "%s | Ensus Media and Marketing",
+  },
   description:
-    "EM Square is a media and marketing studio focused on brand acceleration through creative storytelling and campaign strategy.",
+    "Ensus Media and Marketing helps brands grow through strategic storytelling, creative campaigns, digital experiences, and measurable marketing execution.",
+  keywords: [
+    "media agency",
+    "marketing agency",
+    "brand strategy",
+    "creative marketing",
+    "digital campaigns",
+    "brand storytelling",
+    "content strategy",
+    "social media marketing",
+    "EM Square",
+    "Ensus Media",
+    "Ensus Marketing",
+  ],
+  authors: [{ name: "Ensus Media and Marketing" }],
+  creator: "Ensus Media and Marketing",
+  publisher: "Ensus Media and Marketing",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.ensusmediaandmarketing.com",
+    title: "Ensus Media and Marketing | Creative Strategy, Branding & Growth",
+    description:
+      "Helping modern brands stand out through strategic storytelling, creative direction, and marketing execution that moves audiences to act.",
+    siteName: "Ensus Media and Marketing",
+    images: [
+      {
+        url: "/em-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Ensus Media and Marketing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ensus Media and Marketing | Creative Strategy, Branding & Growth",
+    description:
+      "Helping modern brands stand out through strategic storytelling, creative direction, and marketing execution that moves audiences to act.",
+    creator: "@ensusmedia",
+    site: "@ensusmedia",
+    images: ["/em-logo.png"],
+  },
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
