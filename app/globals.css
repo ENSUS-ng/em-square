@@ -17,14 +17,14 @@
   /* --font-mono: var(--font-geist-mono); */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
     --foreground: #24313a;
     --color-brand-purple: var(--brand-purple);
     --color-brand-gold: var(--brand-gold);
   }
-}
+} */
 
 body {
   min-height: 100vh;

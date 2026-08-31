@@ -16,6 +16,7 @@ export type ServiceItem = {
   about: string
   type: ServiceType
   content: string
+  images?: string[]
   createdAt?: string
 }
 

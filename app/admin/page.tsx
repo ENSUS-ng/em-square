@@ -18,6 +18,12 @@ const dashboardCards = [
     accent: "from-slate-700 via-slate-600 to-slate-500",
   },
   {
+    title: "Update service images",
+    description: "Add and remove images for each service in one place.",
+    href: "/admin/service-images",
+    accent: "from-emerald-500 via-teal-500 to-cyan-500",
+  },
+  {
     title: "Branding requests",
     description: "View and attend to all branding requests received from clients.",
     href: "/admin/launch-requests",
@@ -59,7 +65,7 @@ export default function AdminDashboardPage() {
               <p className="text-sm uppercase tracking-[0.3em] text-brand-purple">
                 Admin dashboard
               </p>
-               <h1 className="mt-2 text-gray-700 text-3xl font-semibold sm:text-4xl">
+              <h1 className="mt-2 text-gray-700 text-3xl font-semibold sm:text-4xl">
                 Manage your digital presence
               </h1>
               <p className="mt-3 max-w-5xl text-sm leading-7 text-slate-500 sm:text-base">

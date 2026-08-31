@@ -1,5 +1,7 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
+
 import Brand from "@/app/models/brand"
 import LaunchRequest from "@/app/models/launchRequest"
 import Service from "@/app/models/service"
@@ -11,6 +13,7 @@ export type CreateServiceInput = {
   about: string
   type: "media" | "marketing"
   content: string
+  images?: string[]
 }
 
 export type CreateBrandInput = {
@@ -41,19 +44,24 @@ export async function createService(input: CreateServiceInput) {
     throw new Error("Type must be media or marketing")
   }
 
+  const images = Array.isArray(input.images)
+    ? input.images.filter((image) => typeof image === "string" && image.trim().length > 0)
+    : []
+
   await Service.create({
     heading: input.heading,
     about: input.about,
     type: input.type,
     content: input.content,
+    images,
   })
   return {
-  ok: true,
-  message: "Service created successfully",
-}
+    ok: true,
+    message: "Service created successfully",
+  }
 }
 
-export async function createBrand(input: CreateBrandInput) {  
+export async function createBrand(input: CreateBrandInput) {
   await connectToDB()
 
   if (!input.logo || !input.brandName) {
@@ -65,9 +73,9 @@ export async function createBrand(input: CreateBrandInput) {
     brandName: input.brandName,
   })
   return {
-  ok: true,
-  message: "Brand created successfully",
-}
+    ok: true,
+    message: "Brand created successfully",
+  }
 }
 
 export async function createTeamMember(input: CreateTeamInput) {
@@ -83,9 +91,9 @@ export async function createTeamMember(input: CreateTeamInput) {
     role: input.role,
   })
   return {
-  ok: true,
-  message: "Team member created successfully",
-}
+    ok: true,
+    message: "Team member created successfully",
+  }
 }
 
 export async function createLaunchRequest(input: CreateLaunchRequestInput) {
@@ -105,5 +113,5 @@ export async function createLaunchRequest(input: CreateLaunchRequestInput) {
     email: input.email,
     message: input.message,
   })
-  return {ok: data.name ? true : false}
+  return { ok: data.name ? true : false }
 }

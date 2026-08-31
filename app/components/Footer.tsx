@@ -6,8 +6,8 @@ export function Footer() {
     <footer className="mx-auto mt-28 w-full max-w-6xl border-t border-slate-200 px-4 py-10 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-lg font-semibold text-slate-900 capitalize">
-            Ensus media and marketing
+          <p className="text-lg font-semibold text-slate-900">
+            ENSUS Media and Marketing
           </p>
           <p className="mt-2 max-w-sm text-sm leading-6 text-slate-500">
             Providing media and marketing for brands ready to move with clarity.

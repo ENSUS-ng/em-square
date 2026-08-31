@@ -1,6 +1,8 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight, Clapperboard, Megaphone } from "lucide-react"
 import { notFound } from "next/navigation"
+
 import Service from "@/app/models/service"
 import { connectToDB } from "@/app/utils/database"
 
@@ -11,6 +13,8 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
   if (!service) notFound()
 
   const isMedia = service.type === "media"
+  const images = Array.isArray(service.images) ? service.images.filter(Boolean) : []
+
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(120,166,163,0.18),transparent_30%),#ffffff] px-4 py-8 text-slate-800 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
@@ -46,6 +50,33 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
             </Link>
           </div>
         </section>
+
+        {images.length > 0 ? (
+          <section className="py-16">
+            <div className="mb-8 flex items-center justify-between gap-4">
+              <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Service gallery</p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {images.map((image:any, index:number) => (
+                <div
+                  key={`${image}-${index}`}
+                  className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)]"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={`${service.heading} visual ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="grid gap-6 py-16 md:grid-cols-[0.35fr_0.65fr]">
           <p className="text-sm uppercase tracking-[0.28em] text-slate-500">The full brief</p>
           <div>

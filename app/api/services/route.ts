@@ -9,12 +9,11 @@ export async function GET(req: NextRequest) {
   try {
     await connectToDB()
     let services
-  if(!typeOfService) {
-     services = await Service.find().sort({ createdAt: -1 }).lean()
-
-      } else  {
-        services = await Service.find({ type: typeOfService }).sort({ createdAt: -1 }).lean()
-      }  
+    if (!typeOfService) {
+      services = await Service.find().sort({ createdAt: -1 }).lean()
+    } else {
+      services = await Service.find({ type: typeOfService }).sort({ createdAt: -1 }).lean()
+    }
     return NextResponse.json({ success: true, data: services })
   } catch (error) {
     console.error("Failed to fetch services", error)
@@ -30,7 +29,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "Invalid request body" }, { status: 400 })
     }
 
-    const service = await createService(body as Parameters<typeof createService>[0])
+    const payload = {
+      ...body,
+      images: Array.isArray(body.images)
+        ? body.images.filter(
+            (image: unknown) => typeof image === "string" && image.trim().length > 0,
+          )
+        : [],
+    }
+
+    const service = await createService(payload as Parameters<typeof createService>[0])
 
     return NextResponse.json({ success: true, data: service }, { status: 201 })
   } catch (error) {

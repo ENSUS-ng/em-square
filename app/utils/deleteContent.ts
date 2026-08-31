@@ -12,6 +12,10 @@ export async function deleteService(id: string) {
   await connectToDB()
   const deleted = await Service.findByIdAndDelete(id)
   if (!deleted) throw new Error("Service not found")
+
+  revalidatePath("/")
+  revalidatePath("/admin")
+
   return { ok: true }
 }
 
